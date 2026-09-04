@@ -286,10 +286,9 @@ def build_byelections(out_wards):
                 'turnout_change_pts': (round(b['turnout_pct'] - may_turnout, 1)
                                        if may_turnout is not None else None),
                 'comparable': post_may,
-                'why': ('Same ward and register ten weeks after the May locals, so the fall is a '
-                        'differential-turnout effect.' if post_may else
-                        'Held BEFORE the May 2026 locals, so the gap measures the Green advance '
-                        'between 2024 and 2026, not what low turnout does. Not a turnout test.'),
+                'why': ('Same ward, same register, ten weeks after the May locals.' if post_may else
+                        'Held before the May 2026 locals, so the difference covers the Green '
+                        'advance between 2024 and 2026 rather than the effect of turnout.'),
             },
             'prov': 'Camden Council declaration',
         })

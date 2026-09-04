@@ -187,13 +187,13 @@ const METRICS = [
   {id:'unaligned', label:'Vote outside the main parties, May 2026', kind:'seq', unit:'%', dom:[0,34],
    get:w=>(w.derived.unaligned_2026||{}).share_pct,
    nodata:'no candidate stood outside the five main parties',
-   desc:'The largest vote for a candidate standing outside Labour, the Conservatives, the Liberal Democrats, the Greens and Reform. <b>These candidates are not a bloc.</b> The two large figures are the Camden People\u2019s Alliance, a community slate; the two small ones are the National Housing Party, which stood on the opposite side of the argument. Click a ward to see which. For the constituency-wide figure, Andrew Feinstein took 18.9% as an independent in 2024 — see the 2024 result in the panel above; no ward-level breakdown of that vote exists.'},
+   desc:'The largest vote in the ward for a candidate outside Labour, the Conservatives, the Liberal Democrats, the Greens and Reform. <b>These candidates are not a bloc.</b> The two large figures are the Camden People\u2019s Alliance, a community slate. The two small ones are the National Housing Party, which stood on the opposite side of the argument. Click a ward to see which. Andrew Feinstein took 18.9% across the seat as an independent in 2024, but there is no ward-level breakdown of that vote.'},
   {id:'seats', label:'Council seats held by the Greens', kind:'seq', unit:'', dom:[0,3],
    get:w=>((D.council&&D.council.by_ward&&D.council.by_ward[w.ward]||{}).now||{}).Green||0,
-   desc:'Green councillors sitting for the ward today, out of its two or three seats. This is the current holding, not the May result: the July by-election moved one Regent\u2019s Park seat from Green to Labour.'},
+   desc:'Green councillors sitting for the ward today, out of its two or three seats. This is who holds the seats now, not the May result. The July by-election moved one Regent\u2019s Park seat from Green to Labour.'},
   {id:'margin', label:'Margin of the last seat, May 2026', kind:'seq', unit:'', dom:[0,220],
    get:w=>(w.e2026.last_seat_margin||{}).votes,
-   desc:'Votes between the last candidate elected and the first not elected. Small numbers mark the genuinely marginal wards; in eight of the eleven that final seat was decided across party lines.'},
+   desc:'Votes between the last candidate elected and the first not elected. In all eleven wards that last seat went to a different party from the runner-up, and in eight the margin was under fifty.'},
   {id:'gsw', label:'Green change, 2022 to 2026', kind:'div', unit:'pts', dom:[-24,24],
    get:w=>w.derived.green_swing_22_26, nodata:'no Green candidate in one of the two years',
    desc:'Change in the Green share since the 2022 locals. Blank where the Greens did not stand in one of the two years, which is five of the eleven wards.'},
@@ -384,7 +384,7 @@ function byelectionTable(ward){
       ${v.green_change_pts == null ? '' : `<p class="note"${v.comparable ? '' : ' style="color:#6b675c"'}>
         Green ${v.green_share_byelection}% here against ${v.green_share_may}% in the ward in May 2026,
         <b>${sign(v.green_change_pts)} pts</b>, on turnout ${sign(v.turnout_change_pts)} pts.
-        ${v.comparable ? '' : '<b>Not a turnout test:</b> '}${v.why}</p>`}`;
+        ${v.comparable ? '' : '<b>Not a turnout comparison.</b> '}${v.why}</p>`}`;
   }).join('');
 }
 
@@ -395,6 +395,14 @@ function byelectionTable(ward){
 // are here: the summary above, the full declaration below.
 // Who sits for the ward today. May 2026 gave the seats; the July by-election has
 // since moved one. A campaign needs the current holding, not election night's.
+// Prose reads badly with bare numerals for small counts, and with turnout carried
+// to two decimals. Tables keep Camden's precision; sentences get one decimal and
+// spelled-out counts.
+const WORDS = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'];
+const num = n => (n != null && n <= 12) ? WORDS[n] : String(n);
+const Num = n => { const w = num(n); return w.charAt(0).toUpperCase() + w.slice(1); };
+const pc = v => v == null ? '' : (Math.round(v * 10) / 10).toFixed(1) + '%';
+
 function councillorLine(w){
   const c = D.council && D.council.by_ward && D.council.by_ward[w.ward];
   if (!c) return '';
@@ -423,8 +431,7 @@ function slateTable(e, id){
     ${m ? `<p class="note${m.cross_party ? '' : ' mute'}">Last seat won by
       <b>${m.votes.toLocaleString()} vote${m.votes===1?'':'s'}</b>:
       ${(PARTY[m.held_by]||PARTY.Other).n} ${m.winner.split(',')[0]} over
-      ${(PARTY[m.missed_by]||PARTY.Other).n} ${m.runner_up.split(',')[0]}.${
-      m.cross_party ? ' A seat changed hands on that margin.' : ''}</p>` : ''}
+      ${(PARTY[m.missed_by]||PARTY.Other).n} ${m.runner_up.split(',')[0]}.</p>` : ''}
   </details>`;
 }
 
@@ -557,74 +564,64 @@ function init(){
   const lV = Math.round(W.reduce((s,w) => s + wtd(w,'Lab'), 0));
 
   document.getElementById('findings').innerHTML = `
-    <h2>Ten things in the numbers</h2>
+    <h2>Notes on the numbers</h2>
     <ol>
-      <li><b>The nine-point gap is mostly an artefact of not standing.</b> Across all eleven wards
-        Labour led the Greens by ${(L.all_wards.shares.Lab - L.all_wards.shares.Green).toFixed(1)}
-        points in May. Across the nine wards where a Green candidate was on the ballot the lead was
+      <li><b>The nine-point gap.</b> Labour led the Greens by
+        ${(L.all_wards.shares.Lab - L.all_wards.shares.Green).toFixed(1)} points across all eleven
+        wards in May. Across the nine wards where a Green candidate was on the ballot, the lead was
         ${(L.green_contested_wards_only.shares.Lab - L.green_contested_wards_only.shares.Green).toFixed(1)}
-        points. A by-election puts one ballot paper across the whole seat, so the second number is
-        the better comparison to make.</li>
-      <li><b>Two wards had no Green candidate, and they are not empty.</b> None stood in
-        King's Cross or St Pancras and Somers Town. The Camden People's Alliance took
-        ${KX.e2026.best.CPA.share_pct}% and ${SP.e2026.best.CPA.share_pct}% there and won a seat in
-        the second. Together the two wards hold about
-        ${(KX.e2026.electorate + SP.e2026.electorate).toLocaleString()} electors, roughly a fifth of
-        the seat, and they are the two most social-rented wards in it. What that vote does when a
-        Green candidate is on the ballot is untested.</li>
-      <li><b>In raw votes the May gap was about ${(lV-gV).toLocaleString()}.</b> Weighted into the
-        seat, the best Labour candidates polled about ${lV.toLocaleString()} and the best Greens
-        about ${gV.toLocaleString()}, on an estimated ${L.est_ballots.toLocaleString()} ballot
-        papers. Two of those wards had no Green name to vote for.</li>
-      <li><b>The Greens topped the poll in ${gWon.length} wards in May.</b> ${
-        gWon.map(w => `${w.ward} on ${w.derived.green_share_2026}%`).join(' and ')}.
-        In 2022 the Greens did not field a candidate in Holborn and Covent Garden at all, and
-        polled ${wd("Regent's Park").e2022.best.Green.share_pct}% in Regent's Park. One of the
-        three Regent's Park seats has since gone back to Labour at the July by-election.</li>
-      <li><b>The one real by-election test says turnout decides this.</b> Regent's Park voted again
-        on 9 July, ten weeks after the Greens swept it, and Labour took the seat back on a
-        ${rp.turnout_pct}% turnout against ${rp.vs_may2026.turnout_may}% in May.
-        ${rp.result[0].candidate.split(' ').pop()} took ${rp.result[0].votes} votes to the Green
-        ${rp.result[1].votes}, a margin of ${rp.result[0].votes - rp.result[1].votes}, with an
-        independent on ${rp.result[2].votes}. The Green share fell from
-        ${rp.vs_may2026.green_share_may}% to ${rp.vs_may2026.green_share_byelection}%,
-        <b>${sign(rp.vs_may2026.green_change_pts)} points</b>, on turnout down
-        ${Math.abs(rp.vs_may2026.turnout_change_pts)}. Same ward, same register, ten weeks apart:
-        this is the cleanest thing in the data, and it points the wrong way for the Greens.</li>
-      <li><b>Two earlier by-elections are a warning about reading the third.</b>
-        ${byPre.map(c => `${c.ward} and`).join(' ').replace(/ and$/,'')} both voted on 5 September
-        2024, on ${byPre.map(c => c.turnout_pct + '%').join(' and ')} turnouts, and Labour held
-        both. The Greens took ${byPre.map(c => c.vs_may2026.green_share_byelection + '%').join(' and ')}
-        there, far below their May 2026 shares — but those contests came <i>before</i> the Green
-        advance, so the gap measures eighteen months of change, not what low turnout does.
-        Only Regent's Park is a turnout test. The map keeps the two apart, and so should any
-        claim built on them.</li>
-      <li><b>Labour holds ${C.now.Lab} of the ${C.total_seats} council seats, the Greens ${C.now.Green}.</b>
-        The Greens hold all three in Holborn and Covent Garden, two of three in Regent's Park after
-        July, and one in Bloomsbury. But the ward totals hide how narrow that is. In <b>every one
-        of the eleven wards</b> the last seat was won across party lines, and in
-        ${margTight.length} of them by under fifty votes: ${
+        points. A by-election puts one ballot paper across the whole seat.</li>
+      <li><b>The two wards with no Green candidate.</b> The Greens did not stand in King's Cross or
+        St Pancras and Somers Town. The Camden People's Alliance took ${KX.e2026.best.CPA.share_pct}%
+        and ${SP.e2026.best.CPA.share_pct}% there, and won a seat in the second. The two wards hold
+        about ${(KX.e2026.electorate + SP.e2026.electorate).toLocaleString()} electors between them,
+        close to a fifth of the seat. They are also the two most social-rented wards in it. No Green
+        has stood in either, so there is no figure for what one would get.</li>
+      <li><b>In votes rather than shares.</b> Weighted into the seat, the best Labour candidates
+        polled about ${lV.toLocaleString()} and the best Greens about ${gV.toLocaleString()}, on an
+        estimated ${L.est_ballots.toLocaleString()} ballot papers. Two wards had no Green name on
+        the paper.</li>
+      <li><b>Where the Greens came first.</b> ${
+        gWon.map(w => `${w.ward} on ${w.derived.green_share_2026}%`).join(' and ')}. In 2022 they
+        did not stand in Holborn and Covent Garden at all, and took
+        ${wd("Regent's Park").e2022.best.Green.share_pct}% in Regent's Park. One of the three
+        Regent's Park seats went back to Labour in July.</li>
+      <li><b>Regent's Park, 9 July.</b> The Greens won all three seats there in May. One of them
+        came up again ten weeks later and Labour won it.
+        ${rp.result[0].candidate.split(' ').pop()} ${rp.result[0].votes}, the Green
+        ${rp.result[1].candidate.split(' ').pop()} ${rp.result[1].votes}, an independent
+        ${rp.result[2].votes}. Turnout was ${pc(rp.turnout_pct)}, against ${pc(rp.vs_may2026.turnout_may)} in May. The Green share went from
+        ${rp.vs_may2026.green_share_may}% to ${rp.vs_may2026.green_share_byelection}%.</li>
+      <li><b>The other two by-elections.</b> ${
+        byPre.map(c => c.ward).join(' and ')} both voted on 5 September 2024, on turnouts of
+        ${byPre.map(c => pc(c.turnout_pct)).join(' and ')}. Labour held both. The Greens took
+        ${byPre.map(c => c.vs_may2026.green_share_byelection + '%').join(' and ')}. Those are well
+        below their May 2026 shares, but both contests came before the Green advance, so the
+        difference covers eighteen months of change rather than the effect of turnout. Only
+        Regent's Park is a like-for-like comparison.</li>
+      <li><b>Council seats.</b> Labour holds ${C.now.Lab} of the ${C.total_seats} in this seat, the
+        Greens ${C.now.Green}, the Camden People's Alliance ${C.now.CPA || 1}. The Greens have all
+        three in Holborn and Covent Garden, two of three in Regent's Park, and one in Bloomsbury.
+        The last seat in every ward was won across party lines. In ${num(margTight.length)} of them it
+        was won by under fifty votes: ${
         margTight.map(m => `${m.ward} by ${m.e2026.last_seat_margin.votes}`).join(', ')}.
-        ${gvl.length} of those were Green against Labour. The two parties are separated here by
-        margins a single canvassing round could cover, in both directions.</li>
-      <li><b>Turnout rose in ${tRise} of the eleven wards and varies enormously.</b> From
-        ${tLo.e2026.turnout_pct}% in ${tLo.ward} to ${tHi.e2026.turnout_pct}% in ${tHi.ward}.
-        It fell only in ${W.find(w => (w.derived.turnout_change_22_26||0) <= 0).ward}, by
-        ${Math.abs(W.find(w => (w.derived.turnout_change_22_26||0) <= 0).derived.turnout_change_22_26)}
-        of a point.</li>
-      <li><b>The Green vote here is not the graduate vote.</b> Across the nine contested wards the
-        Green lead over Labour runs with social renting and against owner occupation and degree
-        holding. Bloomsbury has the most students in the seat, ${wd('Bloomsbury').census2021.student_pct}%,
-        and the Greens did not win it. See the table below, and the warning under it.</li>
-      <li><b>Andrew Feinstein's 7,312 votes from 2024 are unattached, and cannot be located.</b>
-        He has declined to stand. No ward-level 2024 figures exist anywhere, so nothing in this
-        data says which parts of the seat gave him his 18.9%. What the data does show is that a
-        vote outside the main parties is reliably available here when someone credible asks for it:
-        the Camden People's Alliance took ${U.map(u => u.derived.unaligned_2026.share_pct + '%').join(' and ')}
-        in ${U.map(u => u.ward).join(' and ')} in May, winning a seat in the second, and independents
-        took ${IND.map(i => i.share + '%').join(', ')} in the three by-elections since 2022.
-        Feinstein's 18.9% sits inside that band. That tells you the bloc is real and roughly how
-        large — not where it lives, and not whose it is now.</li>
+        ${Num(gvl.length)} of those ${num(margTight.length)} were Green against Labour.</li>
+      <li><b>Turnout.</b> From ${pc(tLo.e2026.turnout_pct)} in ${tLo.ward} to
+        ${pc(tHi.e2026.turnout_pct)} in ${tHi.ward}. It rose in ${num(tRise)} of the eleven wards since
+        2022, and fell only in ${W.find(w => (w.derived.turnout_change_22_26||0) <= 0).ward}, by less
+        than a tenth of a point.</li>
+      <li><b>What the Green vote tracks.</b> Across the nine contested wards, the Green lead over
+        Labour runs with social renting, and against owner occupation and degree holding.
+        Bloomsbury has the most students in the seat, ${wd('Bloomsbury').census2021.student_pct}%,
+        and the Greens did not win it. The table below gives the correlations, with a warning about
+        how far to read them.</li>
+      <li><b>Andrew Feinstein's 7,312 votes.</b> He took 18.9% as an independent in 2024 and is not
+        standing again. There are no ward-level figures for 2024, so nothing here shows where those
+        votes were. Where candidates outside the main parties have stood since, the Camden People's
+        Alliance took ${U.map(u => u.derived.unaligned_2026.share_pct + '%').join(' and ')} in
+        ${U.map(u => u.ward).join(' and ')}, and independents took
+        ${IND.map(i => i.share + '%').join(', ')} in the three by-elections. Feinstein's 18.9% is
+        inside that range.</li>
     </ol>`;
 
   const CO = META.correlations;
@@ -642,18 +639,18 @@ function init(){
     values above about 0.5 either way are bolded.</p>`;
 
   document.getElementById('method').innerHTML = `
-    <h2>Method, and what this is not</h2>
-    <p class="note">Local election shares are not a general election forecast, and a by-election is a third kind of contest again. Nothing here is a prediction.</p>
+    <h2>Method and limits</h2>
+    <p class="note">Local election shares are not a general election forecast, and a by-election
+       is a third kind of contest again. Nothing here is a prediction.</p>
     <p class="note"><span class="tierA">Tier A</span> ward votes and turnout percentages, from the Camden declarations.
        <span class="tierB">Tier B</span> electorates and ballot counts, derived because Camden publishes turnout only as a percentage; census and deprivation figures, aggregated to wards by best-fit small area.
        <span class="tierC">Tier C</span> anything about Primrose Hill, which straddles two constituencies.</p>
     <ul>${META.confidence_notes.map(n => `<li>${n}</li>`).join('')}</ul>
     <h2 style="margin-top:12px">Who made this</h2>
-    <p class="note">Built by George Sheldon Grün, 4 September 2026, from published sources only.
-      No canvass data, no private polling, no voter records. The author is a Green Party member,
-      which is a reason to check the workings rather than to take them on trust: the code, the
-      dataset and every source are in the repository, and the page states where each figure is
-      official and where it is derived.
+    <p class="note">Built by George Sheldon Grün, 4 September 2026. Everything comes from
+      published sources. No canvass data, no private polling, no voter records. I am a Green Party
+      member. The code, the data and the sources are all in the repository, and the page marks
+      which figures are official and which are derived, so the workings can be checked.
       <a href="https://github.com/hackney-data-stories/holborn-st-pancras-map" style="color:#1b6b34">
       github.com/hackney-data-stories/holborn-st-pancras-map</a></p>
     <h2 style="margin-top:12px">Sources</h2>

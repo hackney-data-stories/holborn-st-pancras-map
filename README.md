@@ -29,17 +29,15 @@ Everything the colours encode is also available as plain text through the
    wards where a Green candidate was actually on the ballot, the lead was 2.5
    points. The Greens fielded nobody in King's Cross or St Pancras and Somers
    Town, which between them hold about a fifth of the electorate.
-2. **The Green vote here does not track the graduate vote.** Across the nine
-   contested wards the Green lead over Labour correlates +0.66 with social
-   renting and −0.57 with degree holding. Bloomsbury has the most students in the
-   seat, 39.7%, and the Greens did not win it. Nine wards is a very small sample
-   and these are correlations between ward averages, not between voters — the
-   page says so at more length.
-3. **The one clean by-election test points the wrong way for the Greens.**
-   Regent's Park voted again on 9 July 2026 on a 21.9% turnout, against 35.1% ten
-   weeks earlier. Labour took back a ward the Greens had swept in May, by 94
-   votes, with an independent on 407. The Green share fell 11.2 points on turnout
-   down 13.2. Same ward, same register, ten weeks apart.
+2. **What the Green vote tracks.** Across the nine contested wards the Green lead
+   over Labour correlates +0.66 with social renting and −0.57 with degree
+   holding. Bloomsbury has the most students in the seat, 39.7%, and the Greens
+   did not win it. Nine wards is a very small sample, and these are relationships
+   between ward averages rather than between voters.
+3. **Regent's Park, 9 July 2026.** The Greens won all three seats there in May.
+   One came up again ten weeks later and Labour won it by 94 votes, with an
+   independent on 407. Turnout was 21.9%, against 35.1% in May, and the Green
+   share went from 38.3% to 27.1%.
 
    Two earlier by-elections, Camden Square and Kentish Town South on 5 September
    2024, are in the data too, but they sit *before* the Green advance, so their
@@ -48,11 +46,11 @@ Everything the colours encode is also available as plain text through the
    the page refuses to draw the turnout inference from them. Only Regent's Park is
    a turnout test.
 
-4. **Every ward's last seat was won across party lines, eight of them by under
-   fifty votes.** Camden Square by 18, Bloomsbury by 19, St Pancras and Somers
-   Town by 21, then four more under fifty. Six of those eight were Green against
-   Labour. Labour holds 23 of the seat's 30 council seats and the Greens 6, but
-   those totals sit on margins a single canvassing round could cover.
+4. **Council seats.** Labour holds 23 of the 30 in this seat, the Greens 6 and
+   the Camden People's Alliance 1. The last seat in every ward was won across
+   party lines, and in eight of them by under fifty votes: Camden Square by 18,
+   Bloomsbury by 19, St Pancras and Somers Town by 21, and five more under fifty.
+   Six of those eight were Green against Labour.
 
 ## On the vote outside the main parties
 
