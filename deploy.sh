@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # Rebuild the page from the dataset and deploy it to Cloudflare Pages.
 #
-# This is a direct-upload Pages project, not git-connected: pushing to GitHub
-# does not redeploy the site. Run this.
+# You usually do not need this. The Pages project is git-connected, so pushing to
+# main rebuilds and redeploys the site on its own. This is for deploying without
+# a push: checking a change before committing it, or shipping when GitHub is
+# down. It uploads whatever is in public/ right now.
 set -euo pipefail
 cd "$(dirname "$0")"
 
