@@ -1,0 +1,2631 @@
+{
+ "2022": {
+  "Belsize": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Tom Simon",
+     "LD",
+     1494
+    ],
+    [
+     "Judy Dixey",
+     "LD",
+     1445
+    ],
+    [
+     "Matthew Kirk",
+     "LD",
+     1317
+    ],
+    [
+     "Oliver Cooper \u2020",
+     "Con",
+     1124
+    ],
+    [
+     "Steve Adams",
+     "Con",
+     1106
+    ],
+    [
+     "Aarti Joshi",
+     "Con",
+     953
+    ],
+    [
+     "Issy Waite",
+     "Lab",
+     705
+    ],
+    [
+     "Shaheen Chowdhury",
+     "Lab",
+     692
+    ],
+    [
+     "Peter Ptashko",
+     "Lab",
+     644
+    ]
+   ],
+   "turnout": [
+    3263,
+    38.4
+   ],
+   "electorate": null
+  },
+  "Bloomsbury": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Sabrina Francis",
+     "Lab",
+     1411
+    ],
+    [
+     "Adam Harrison",
+     "Lab",
+     1346
+    ],
+    [
+     "Rishi Madlani",
+     "Lab",
+     1269
+    ],
+    [
+     "Catherine Hays",
+     "LD",
+     400
+    ],
+    [
+     "William Frost",
+     "Con",
+     378
+    ],
+    [
+     "Richard Hayward",
+     "Con",
+     351
+    ],
+    [
+     "Paul Bhangal",
+     "Con",
+     335
+    ],
+    [
+     "Jonathan Lewin",
+     "LD",
+     291
+    ],
+    [
+     "Farrell Monk",
+     "LD",
+     281
+    ]
+   ],
+   "turnout": [
+    2125,
+    30.2
+   ],
+   "electorate": null
+  },
+  "Camden Square": {
+   "seats": 2,
+   "candidates": [
+    [
+     "Danny Beales \u2020",
+     "Lab",
+     1309
+    ],
+    [
+     "Sagal Abdiwali",
+     "Lab",
+     1275
+    ],
+    [
+     "Anne Wright",
+     "LD",
+     244
+    ],
+    [
+     "Lawrence Nicholson",
+     "LD",
+     218
+    ],
+    [
+     "Catherine McQueen",
+     "Con",
+     180
+    ],
+    [
+     "Jack Tinley",
+     "Con",
+     146
+    ]
+   ],
+   "turnout": [
+    1769,
+    31.8
+   ],
+   "electorate": null
+  },
+  "Camden Town": {
+   "seats": 2,
+   "candidates": [
+    [
+     "Pat Callaghan \u2020",
+     "Lab",
+     1024
+    ],
+    [
+     "Richard Cotton \u2020",
+     "Lab",
+     854
+    ],
+    [
+     "Charley Greenwood",
+     "Green",
+     286
+    ],
+    [
+     "Adrian Holle",
+     "Con",
+     163
+    ],
+    [
+     "Hannah Margetts",
+     "Con",
+     156
+    ],
+    [
+     "Ekaterina Kirk",
+     "LD",
+     139
+    ],
+    [
+     "Martin Wright",
+     "LD",
+     101
+    ]
+   ],
+   "turnout": [
+    1411,
+    29.2
+   ],
+   "electorate": null
+  },
+  "Fortune Green": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Nancy Jirira",
+     "LD",
+     1481
+    ],
+    [
+     "Lorna Greenwood",
+     "Lab",
+     1479
+    ],
+    [
+     "Richard Olszewski",
+     "Lab",
+     1397
+    ],
+    [
+     "Marcus Storm",
+     "Lab",
+     1288
+    ],
+    [
+     "Tracey Shackle",
+     "LD",
+     1238
+    ],
+    [
+     "William Coles",
+     "LD",
+     1151
+    ],
+    [
+     "Keith Sedgwick",
+     "Con",
+     376
+    ],
+    [
+     "Hannah David",
+     "Con",
+     374
+    ],
+    [
+     "Jamie Webb",
+     "Con",
+     362
+    ]
+   ],
+   "turnout": [
+    3193,
+    37.2
+   ],
+   "electorate": null
+  },
+  "Frognal": {
+   "seats": 2,
+   "candidates": [
+    [
+     "Andrew Parkinson \u2020",
+     "Con",
+     923
+    ],
+    [
+     "Gio Spinella \u2020",
+     "Con",
+     890
+    ],
+    [
+     "Suber Abdikarim",
+     "Lab",
+     473
+    ],
+    [
+     "John Carr",
+     "Lab",
+     469
+    ],
+    [
+     "Charles Harris",
+     "Green",
+     276
+    ],
+    [
+     "Adrian Bridge",
+     "LD",
+     274
+    ],
+    [
+     "Valdir Francisco",
+     "LD",
+     236
+    ]
+   ],
+   "turnout": [
+    1815,
+    33.9
+   ],
+   "electorate": null
+  },
+  "Gospel Oak": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Jenny Mulholland",
+     "Lab",
+     1927
+    ],
+    [
+     "Marcus Boyland",
+     "Lab",
+     1880
+    ],
+    [
+     "Larraine Revah",
+     "Lab",
+     1860
+    ],
+    [
+     "Margaret Jackson-Roberts",
+     "LD",
+     492
+    ],
+    [
+     "Jah-Love Charles",
+     "Con",
+     466
+    ],
+    [
+     "Laura Noel",
+     "LD",
+     460
+    ],
+    [
+     "Nigel Rumble",
+     "Con",
+     449
+    ],
+    [
+     "Esmeralda Akpoke",
+     "Con",
+     434
+    ],
+    [
+     "David Simmons",
+     "LD",
+     354
+    ],
+    [
+     "Chrislyn Pict",
+     "Ind",
+     89
+    ]
+   ],
+   "turnout": [
+    2944,
+    33.5
+   ],
+   "electorate": null
+  },
+  "Hampstead Town": {
+   "seats": 2,
+   "candidates": [
+    [
+     "Stephen Stark",
+     "Con",
+     1089
+    ],
+    [
+     "Adrian Cohen",
+     "Lab",
+     1030
+    ],
+    [
+     "Alexandra Sufit",
+     "Lab",
+     971
+    ],
+    [
+     "Deborah Dor",
+     "Con",
+     887
+    ],
+    [
+     "Anne Ward",
+     "LD",
+     609
+    ],
+    [
+     "Nicholas Russell",
+     "LD",
+     435
+    ]
+   ],
+   "turnout": [
+    2581,
+    43.3
+   ],
+   "electorate": null
+  },
+  "Haverstock": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Kemi Atolagbe",
+     "Lab",
+     1523
+    ],
+    [
+     "Rebecca Filer",
+     "Lab",
+     1430
+    ],
+    [
+     "Nasrine Djemai",
+     "Lab",
+     1402
+    ],
+    [
+     "Peter McGinty",
+     "Green",
+     643
+    ],
+    [
+     "Jill Fraser",
+     "LD",
+     427
+    ],
+    [
+     "Fiona Fraser",
+     "LD",
+     368
+    ],
+    [
+     "Diane Culligan",
+     "LD",
+     313
+    ],
+    [
+     "Timothy Frost",
+     "Con",
+     312
+    ],
+    [
+     "David Roberts",
+     "Con",
+     294
+    ],
+    [
+     "Shreena Parkinson",
+     "Con",
+     292
+    ],
+    [
+     "Alice Brown",
+     "Ind",
+     278
+    ],
+    [
+     "Mohamed Farah",
+     "Ind",
+     232
+    ]
+   ],
+   "turnout": [
+    2687,
+    31.3
+   ],
+   "electorate": null
+  },
+  "Highgate": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Si\u00e2n Berry",
+     "Green",
+     1967
+    ],
+    [
+     "Anna Wright",
+     "Lab",
+     1898
+    ],
+    [
+     "Camron Aref-Adib",
+     "Lab",
+     1809
+    ],
+    [
+     "Panny Antoniou",
+     "Lab",
+     1527
+    ],
+    [
+     "Lorna Russell \u2020",
+     "Green",
+     1460
+    ],
+    [
+     "David Stansell",
+     "Green",
+     929
+    ],
+    [
+     "Paul Farrow",
+     "Con",
+     431
+    ],
+    [
+     "Judith Barnes",
+     "Con",
+     403
+    ],
+    [
+     "Richard Merrin",
+     "Con",
+     380
+    ],
+    [
+     "Munro Price",
+     "LD",
+     206
+    ],
+    [
+     "Henry Potts",
+     "LD",
+     188
+    ],
+    [
+     "Stephen Pickthall",
+     "LD",
+     172
+    ]
+   ],
+   "turnout": [
+    3859,
+    49.0
+   ],
+   "electorate": null
+  },
+  "Holborn and Covent Garden": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Julian Fulbrook",
+     "Lab",
+     1807
+    ],
+    [
+     "Sue Vincent",
+     "Lab",
+     1779
+    ],
+    [
+     "Awale Olad",
+     "Lab",
+     1686
+    ],
+    [
+     "Maurice Hirt",
+     "Con",
+     362
+    ],
+    [
+     "Adam Lester",
+     "Con",
+     354
+    ],
+    [
+     "Alison Frost",
+     "Con",
+     349
+    ],
+    [
+     "Charlotte O'Brien",
+     "LD",
+     299
+    ],
+    [
+     "Stephen Barabas",
+     "LD",
+     268
+    ],
+    [
+     "Patrick McGinnis",
+     "Ind",
+     214
+    ],
+    [
+     "Erich Wagner",
+     "LD",
+     213
+    ]
+   ],
+   "turnout": [
+    2626,
+    32.9
+   ],
+   "electorate": null
+  },
+  "Kentish Town North": {
+   "seats": 2,
+   "candidates": [
+    [
+     "Sylvia McNamara",
+     "Lab",
+     1560
+    ],
+    [
+     "James Slater",
+     "Lab",
+     1303
+    ],
+    [
+     "Brigitte Ascher",
+     "Green",
+     673
+    ],
+    [
+     "Jade Kelly",
+     "LD",
+     238
+    ],
+    [
+     "Darryl Davies",
+     "Con",
+     157
+    ],
+    [
+     "Jillian Newbrook",
+     "LD",
+     124
+    ],
+    [
+     "Lucy Sheppard",
+     "Con",
+     145
+    ],
+    [
+     "Farhana Manzoor",
+     "TUSC",
+     105
+    ]
+   ],
+   "turnout": [
+    2229,
+    40.3
+   ],
+   "electorate": null
+  },
+  "Kentish Town South": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Georgia Gould \u2020",
+     "Lab",
+     1847
+    ],
+    [
+     "Meri\u00e7 Apak \u2020",
+     "Lab",
+     1664
+    ],
+    [
+     "Jenny Headlam-Wells \u2020",
+     "Lab",
+     1616
+    ],
+    [
+     "Francesca Bury",
+     "Green",
+     678
+    ],
+    [
+     "Dominic Kendrick",
+     "Green",
+     444
+    ],
+    [
+     "Helena Djurkovic",
+     "LD",
+     250
+    ],
+    [
+     "Susan Lee",
+     "Con",
+     244
+    ],
+    [
+     "John Webber",
+     "Con",
+     226
+    ],
+    [
+     "Alexander Ricketts",
+     "Con",
+     221
+    ],
+    [
+     "Rebecca Trenner",
+     "LD",
+     174
+    ],
+    [
+     "Derek McAuley",
+     "LD",
+     151
+    ],
+    [
+     "Hannah Power",
+     "TUSC",
+     122
+    ]
+   ],
+   "turnout": [
+    2658,
+    35.8
+   ],
+   "electorate": null
+  },
+  "Kilburn": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Eddie Hanson",
+     "Lab",
+     1646
+    ],
+    [
+     "Lloyd Hatton",
+     "Lab",
+     1521
+    ],
+    [
+     "Nanouche Umeadi",
+     "Lab",
+     1405
+    ],
+    [
+     "Alexander Pelling-Bruce",
+     "Con",
+     447
+    ],
+    [
+     "Rahoul Bhansali",
+     "Con",
+     395
+    ],
+    [
+     "Kathryn Sturgeon",
+     "LD",
+     375
+    ],
+    [
+     "Marc Nykolyszyn",
+     "Con",
+     340
+    ],
+    [
+     "Hamir Patel",
+     "LD",
+     288
+    ],
+    [
+     "Daviyani Kothari",
+     "LD",
+     286
+    ]
+   ],
+   "turnout": [
+    2414,
+    29.6
+   ],
+   "electorate": null
+  },
+  "King's Cross": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Lotis Bautista",
+     "Lab",
+     1317
+    ],
+    [
+     "Liam Martin-Lane",
+     "Lab",
+     1256
+    ],
+    [
+     "Jonathan Simpson",
+     "Lab",
+     1205
+    ],
+    [
+     "Alex Smith",
+     "Green",
+     417
+    ],
+    [
+     "Catherine Frost",
+     "Con",
+     249
+    ],
+    [
+     "Douglas de Morais",
+     "Con",
+     219
+    ],
+    [
+     "Clementine Manning",
+     "Con",
+     218
+    ],
+    [
+     "Joan Baktis",
+     "LD",
+     214
+    ],
+    [
+     "Benjamin Newman",
+     "LD",
+     185
+    ],
+    [
+     "Jack Fleming",
+     "LD",
+     167
+    ]
+   ],
+   "turnout": [
+    1926,
+    27.4
+   ],
+   "electorate": null
+  },
+  "Primrose Hill": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Anna Burrage",
+     "Lab",
+     1568
+    ],
+    [
+     "Ajok Athian",
+     "Lab",
+     1375
+    ],
+    [
+     "Matt Cooper",
+     "Lab",
+     1343
+    ],
+    [
+     "Alex Andrews",
+     "Con",
+     1009
+    ],
+    [
+     "Pierre Andrews",
+     "Con",
+     959
+    ],
+    [
+     "Alexandra Marsanu",
+     "Con",
+     910
+    ],
+    [
+     "Matthew Wrigley",
+     "Green",
+     647
+    ],
+    [
+     "James Bowen",
+     "LD",
+     488
+    ],
+    [
+     "Hinne Tuinstra",
+     "LD",
+     373
+    ],
+    [
+     "Phil Cowan",
+     "Ind",
+     339
+    ]
+   ],
+   "turnout": [
+    3167,
+    36.5
+   ],
+   "electorate": null
+  },
+  "Regent's Park": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Heather Johnson",
+     "Lab",
+     1552
+    ],
+    [
+     "Nadia Shah",
+     "Lab",
+     1516
+    ],
+    [
+     "Nasim Ali",
+     "Lab",
+     1504
+    ],
+    [
+     "Hugo Plowden",
+     "Green",
+     423
+    ],
+    [
+     "George Aspinall",
+     "Con",
+     413
+    ],
+    [
+     "Joanna Reeves",
+     "Con",
+     390
+    ],
+    [
+     "Martin Sheppard",
+     "Con",
+     355
+    ],
+    [
+     "Mary Stanier",
+     "LD",
+     251
+    ],
+    [
+     "Samuel Campling",
+     "LD",
+     206
+    ],
+    [
+     "Christopher Gayford",
+     "LD",
+     188
+    ],
+    [
+     "Karin Radicke",
+     "Let London Live",
+     114
+    ]
+   ],
+   "turnout": [
+    2448,
+    30.3
+   ],
+   "electorate": null
+  },
+  "South Hampstead": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Nina Parker",
+     "Lab",
+     1692
+    ],
+    [
+     "Izzy Lenga",
+     "Lab",
+     1655
+    ],
+    [
+     "Will Prince",
+     "Lab",
+     1564
+    ],
+    [
+     "Don Williams",
+     "Con",
+     976
+    ],
+    [
+     "Calvin Po",
+     "Con",
+     947
+    ],
+    [
+     "Marx de Morais",
+     "Con",
+     931
+    ],
+    [
+     "James Baker",
+     "LD",
+     436
+    ],
+    [
+     "Aimery Roquefort",
+     "LD",
+     424
+    ],
+    [
+     "Pranay Hariharan",
+     "LD",
+     376
+    ]
+   ],
+   "turnout": [
+    3128,
+    36.7
+   ],
+   "electorate": null
+  },
+  "St Pancras and Somers Town": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Samata Khatoon",
+     "Lab",
+     1874
+    ],
+    [
+     "Edmund Frondigoun",
+     "Lab",
+     1845
+    ],
+    [
+     "Shah Miah",
+     "Lab",
+     1799
+    ],
+    [
+     "Alex Ellis",
+     "Con",
+     322
+    ],
+    [
+     "Hannah Billington",
+     "LD",
+     299
+    ],
+    [
+     "Carole Ricketts",
+     "Con",
+     290
+    ],
+    [
+     "Axel Kaae",
+     "Con",
+     268
+    ],
+    [
+     "Awal Miah",
+     "WPB",
+     239
+    ],
+    [
+     "Stewart Jenkins",
+     "LD",
+     217
+    ],
+    [
+     "M D Shah",
+     "WPB",
+     202
+    ],
+    [
+     "Neisha Wong",
+     "WPB",
+     196
+    ],
+    [
+     "Michael Pedersen",
+     "LD",
+     183
+    ]
+   ],
+   "turnout": [
+    2724,
+    32.9
+   ],
+   "electorate": null
+  },
+  "West Hampstead": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Sharon Hardwick",
+     "Lab",
+     1332
+    ],
+    [
+     "Nazma Rahman",
+     "Lab",
+     1262
+    ],
+    [
+     "Shiva Tiwari",
+     "Lab",
+     1202
+    ],
+    [
+     "Janet Grauberg",
+     "LD",
+     1164
+    ],
+    [
+     "David Elkan",
+     "LD",
+     964
+    ],
+    [
+     "Elizabeth Pearson",
+     "LD",
+     963
+    ],
+    [
+     "Ian Cohen",
+     "Con",
+     494
+    ],
+    [
+     "Marcos Gold",
+     "Con",
+     449
+    ],
+    [
+     "Peter Horne",
+     "Con",
+     407
+    ]
+   ],
+   "turnout": [
+    2886,
+    35.8
+   ],
+   "electorate": null
+  }
+ },
+ "2026": {
+  "Belsize": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Judy Dixey",
+     "LD",
+     1191
+    ],
+    [
+     "Tom Simon",
+     "LD",
+     1162
+    ],
+    [
+     "Matthew Kirk",
+     "LD",
+     1132
+    ],
+    [
+     "Alexander Donnelly",
+     "Con",
+     1028
+    ],
+    [
+     "Peter Horne",
+     "Con",
+     949
+    ],
+    [
+     "Shelley Rubinstein",
+     "Con",
+     949
+    ],
+    [
+     "Stefano Casalotti",
+     "Green",
+     548
+    ],
+    [
+     "Dan Bilenga",
+     "Lab",
+     488
+    ],
+    [
+     "Tamsin Mitchell",
+     "Lab",
+     488
+    ],
+    [
+     "Jessica Noske-Turner",
+     "Green",
+     468
+    ],
+    [
+     "Neville McKay",
+     "Lab",
+     464
+    ],
+    [
+     "Bobby Raj",
+     "Green",
+     393
+    ],
+    [
+     "Joycelyn Buffouge",
+     "Reform",
+     261
+    ],
+    [
+     "Coren Lass",
+     "Reform",
+     261
+    ],
+    [
+     "Candice McElroy",
+     "Reform",
+     236
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "Bloomsbury": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Sabrina Francis",
+     "Lab",
+     910
+    ],
+    [
+     "Adam Harrison",
+     "Lab",
+     886
+    ],
+    [
+     "Lilac Carr",
+     "Green",
+     846
+    ],
+    [
+     "Rishi Madlani",
+     "Lab",
+     827
+    ],
+    [
+     "Matthew Parsfield",
+     "Green",
+     817
+    ],
+    [
+     "Volodymyr Lukyanov",
+     "Green",
+     763
+    ],
+    [
+     "William Frost",
+     "Con",
+     266
+    ],
+    [
+     "Christopher Cooke",
+     "Reform",
+     251
+    ],
+    [
+     "Richard Samuel",
+     "Reform",
+     241
+    ],
+    [
+     "Stuart Leach",
+     "Con",
+     236
+    ],
+    [
+     "Katie Cooke",
+     "LD",
+     198
+    ],
+    [
+     "Jonathan Lewin",
+     "LD",
+     198
+    ],
+    [
+     "Paul Bhangal",
+     "Con",
+     181
+    ],
+    [
+     "Kenneth Barnett",
+     "LD",
+     172
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "Camden Square": {
+   "seats": 2,
+   "candidates": [
+    [
+     "Sagal Abdi-Wali",
+     "Lab",
+     890
+    ],
+    [
+     "Tricia Leman",
+     "Lab",
+     848
+    ],
+    [
+     "Helen Doyle",
+     "Green",
+     830
+    ],
+    [
+     "Adam Haswell",
+     "Green",
+     687
+    ],
+    [
+     "Benjamin Newman",
+     "LD",
+     164
+    ],
+    [
+     "Michael Britton",
+     "Ind",
+     162
+    ],
+    [
+     "Oliver Pearce",
+     "Reform",
+     162
+    ],
+    [
+     "Juan Ojeda-Sanchez",
+     "Reform",
+     151
+    ],
+    [
+     "Roger Freeman",
+     "Con",
+     119
+    ],
+    [
+     "Samel Tomas",
+     "LD",
+     106
+    ],
+    [
+     "Jamie Webb",
+     "Con",
+     93
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "Camden Town": {
+   "seats": 2,
+   "candidates": [
+    [
+     "Pat Callaghan",
+     "Lab",
+     746
+    ],
+    [
+     "Matt Cooper",
+     "Lab",
+     620
+    ],
+    [
+     "Peter Goldsmith",
+     "Green",
+     583
+    ],
+    [
+     "Philip Nelson",
+     "Green",
+     544
+    ],
+    [
+     "David Haig",
+     "Reform",
+     142
+    ],
+    [
+     "James Kafton",
+     "Con",
+     113
+    ],
+    [
+     "Ekaterina Kirk",
+     "LD",
+     111
+    ],
+    [
+     "Susan Lee",
+     "Con",
+     109
+    ],
+    [
+     "Vedamsh Vaidya",
+     "Reform",
+     96
+    ],
+    [
+     "Rafe Offer",
+     "LD",
+     84
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "Fortune Green": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Nancy Jirira",
+     "LD",
+     1376
+    ],
+    [
+     "William  Coles",
+     "LD",
+     1199
+    ],
+    [
+     "Farrell Monk",
+     "LD",
+     1151
+    ],
+    [
+     "Erin Carlson",
+     "Green",
+     847
+    ],
+    [
+     "Katie Clark",
+     "Lab",
+     746
+    ],
+    [
+     "Kasia Kramer",
+     "Lab",
+     646
+    ],
+    [
+     "Bruno Leipold",
+     "Green",
+     632
+    ],
+    [
+     "Matthew Houlsby",
+     "Lab",
+     623
+    ],
+    [
+     "Corne Verster",
+     "Green",
+     564
+    ],
+    [
+     "Ian Cohen",
+     "Con",
+     481
+    ],
+    [
+     "David Brierley",
+     "Con",
+     405
+    ],
+    [
+     "Dominic Parker",
+     "Con",
+     328
+    ],
+    [
+     "Wendy Taylor",
+     "Reform",
+     266
+    ],
+    [
+     "Zachary Ilunga",
+     "Reform",
+     248
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "Frognal": {
+   "seats": 2,
+   "candidates": [
+    [
+     "Steven Adams",
+     "Con",
+     1034
+    ],
+    [
+     "Juliette Graham",
+     "Con",
+     933
+    ],
+    [
+     "Charles Harris",
+     "Green",
+     361
+    ],
+    [
+     "Jack Leader",
+     "Lab",
+     355
+    ],
+    [
+     "Willow Parker",
+     "Lab",
+     342
+    ],
+    [
+     "Catherine Keshishian",
+     "Green",
+     339
+    ],
+    [
+     "Marx De Morais",
+     "Reform",
+     253
+    ],
+    [
+     "Reetendra Banerji",
+     "LD",
+     243
+    ],
+    [
+     "Valdir Francisco",
+     "LD",
+     236
+    ],
+    [
+     "Thomas Sterling",
+     "Reform",
+     233
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "Gospel Oak": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Richard Atkins",
+     "Green",
+     1240
+    ],
+    [
+     "Marcus Boyland",
+     "Lab",
+     1208
+    ],
+    [
+     "Larraine Revah",
+     "Lab",
+     1192
+    ],
+    [
+     "Andrea Paramananthan",
+     "Green",
+     1165
+    ],
+    [
+     "Rob Reeves",
+     "Green",
+     1137
+    ],
+    [
+     "Matthew Sudlow",
+     "Lab",
+     1100
+    ],
+    [
+     "Alan Drummond",
+     "Reform",
+     444
+    ],
+    [
+     "Lindsey Mitchell",
+     "Reform",
+     425
+    ],
+    [
+     "David Moore",
+     "Reform",
+     420
+    ],
+    [
+     "Margaret Jackson-Roberts",
+     "LD",
+     360
+    ],
+    [
+     "James Bowen",
+     "LD",
+     350
+    ],
+    [
+     "Peter Straker",
+     "Con",
+     343
+    ],
+    [
+     "Rapha\u00ebl Link-Gurprasad",
+     "Con",
+     319
+    ],
+    [
+     "Saed Mohamed",
+     "Con",
+     279
+    ],
+    [
+     "Sunil Hiranandani",
+     "LD",
+     247
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "Hampstead Town": {
+   "seats": 2,
+   "candidates": [
+    [
+     "Linda Chung",
+     "LD",
+     1221
+    ],
+    [
+     "Stephen Stark",
+     "Con",
+     1069
+    ],
+    [
+     "Aimery Roquefort",
+     "LD",
+     960
+    ],
+    [
+     "Amanda Sefton",
+     "Con",
+     814
+    ],
+    [
+     "Anna Burrage",
+     "Lab",
+     492
+    ],
+    [
+     "Laura Rohde",
+     "Green",
+     388
+    ],
+    [
+     "Justin Hoffman",
+     "Green",
+     333
+    ],
+    [
+     "Michael Williams",
+     "Lab",
+     320
+    ],
+    [
+     "Laura Phillips",
+     "Reform",
+     190
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "Haverstock": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Kemi Atolagbe",
+     "Lab",
+     1366
+    ],
+    [
+     "Rebecca Filer",
+     "Lab",
+     1322
+    ],
+    [
+     "Nasrine Djemai",
+     "Lab",
+     1255
+    ],
+    [
+     "Mohamed Farah",
+     "Green",
+     1209
+    ],
+    [
+     "Andrej Mecava",
+     "Green",
+     1117
+    ],
+    [
+     "Aziz Hakimi",
+     "Green",
+     1034
+    ],
+    [
+     "Katharine Burge",
+     "LD",
+     351
+    ],
+    [
+     "Josh Mackenzie-Lawrie",
+     "Con",
+     320
+    ],
+    [
+     "John Webber",
+     "Con",
+     319
+    ],
+    [
+     "Robert Wheater",
+     "Reform",
+     313
+    ],
+    [
+     "Aindrias \u014ch-\u0112ineag\u0101in",
+     "Reform",
+     300
+    ],
+    [
+     "Alex Williams",
+     "Con",
+     298
+    ],
+    [
+     "Joseph Tobin",
+     "LD",
+     259
+    ],
+    [
+     "Alidad Moaveni",
+     "LD",
+     220
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "Highgate": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Lorna Jane Russell",
+     "Green",
+     1908
+    ],
+    [
+     "Camron Aref-Adib",
+     "Lab",
+     1815
+    ],
+    [
+     "Anna Wright",
+     "Lab",
+     1810
+    ],
+    [
+     "Alice Brown",
+     "Green",
+     1612
+    ],
+    [
+     "James Dicker",
+     "Green",
+     1352
+    ],
+    [
+     "John Carr",
+     "Lab",
+     1253
+    ],
+    [
+     "Judith Barnes",
+     "Con",
+     522
+    ],
+    [
+     "Will Finn",
+     "Con",
+     494
+    ],
+    [
+     "Johnny Chapman",
+     "Con",
+     425
+    ],
+    [
+     "Ben Brook",
+     "Reform",
+     342
+    ],
+    [
+     "Henry Potts",
+     "LD",
+     250
+    ],
+    [
+     "Mark Finney",
+     "LD",
+     205
+    ],
+    [
+     "Munro Price",
+     "LD",
+     184
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "Holborn and Covent Garden": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Hamza Chowdhury",
+     "Green",
+     1271
+    ],
+    [
+     "Jim Monahan",
+     "Green",
+     1176
+    ],
+    [
+     "James White",
+     "Green",
+     1144
+    ],
+    [
+     "Julian Fulbrook",
+     "Lab",
+     1035
+    ],
+    [
+     "Livia Paggi",
+     "Lab",
+     848
+    ],
+    [
+     "Richard Olszewski",
+     "Lab",
+     749
+    ],
+    [
+     "Michael Kane",
+     "Reform",
+     309
+    ],
+    [
+     "Jack Nott-Bower",
+     "Reform",
+     302
+    ],
+    [
+     "Atlan Dervish",
+     "Reform",
+     263
+    ],
+    [
+     "Alison Frost",
+     "Con",
+     248
+    ],
+    [
+     "Tim Frost",
+     "Con",
+     220
+    ],
+    [
+     "Patrick McGinnis",
+     "NHPUK",
+     217
+    ],
+    [
+     "Keith Sedgwick",
+     "Con",
+     189
+    ],
+    [
+     "Charlotte O\u2019Brien",
+     "LD",
+     185
+    ],
+    [
+     "Stephen Barabas",
+     "LD",
+     182
+    ],
+    [
+     "Mark Furnell",
+     "NHPUK",
+     166
+    ],
+    [
+     "Erich Wagner",
+     "LD",
+     132
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "Kentish Town North": {
+   "seats": 2,
+   "candidates": [
+    [
+     "Sylvia McNamara",
+     "Lab",
+     1367
+    ],
+    [
+     "James Slater",
+     "Lab",
+     1351
+    ],
+    [
+     "Brigitte Ascher",
+     "Green",
+     1163
+    ],
+    [
+     "Hannah Morris",
+     "Green",
+     1129
+    ],
+    [
+     "Claire Mortimer",
+     "Reform",
+     141
+    ],
+    [
+     "Colin Rennie",
+     "Reform",
+     137
+    ],
+    [
+     "Darryl Davies",
+     "Con",
+     124
+    ],
+    [
+     "Richard Merrin",
+     "Con",
+     109
+    ],
+    [
+     "Roger Pillai",
+     "LD",
+     84
+    ],
+    [
+     "Rex Shackle",
+     "LD",
+     72
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "Kentish Town South": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Meri\u00e7 Apak",
+     "Lab",
+     1441
+    ],
+    [
+     "Joseph Ball",
+     "Lab",
+     1425
+    ],
+    [
+     "Annabelle Williams",
+     "Lab",
+     1320
+    ],
+    [
+     "Pete Hutchings",
+     "Green",
+     1278
+    ],
+    [
+     "Ashoka Phillips",
+     "Green",
+     1209
+    ],
+    [
+     "Kai Nixon",
+     "Green",
+     1198
+    ],
+    [
+     "Genieve Laidman",
+     "Reform",
+     272
+    ],
+    [
+     "George Spencer",
+     "Reform",
+     268
+    ],
+    [
+     "Robert Brittain",
+     "Con",
+     219
+    ],
+    [
+     "Stacey Offer",
+     "LD",
+     171
+    ],
+    [
+     "Robert Ricketts",
+     "Con",
+     161
+    ],
+    [
+     "Joseph Macdonogh",
+     "LD",
+     155
+    ],
+    [
+     "Devin Kohli",
+     "Con",
+     147
+    ],
+    [
+     "Hinne Tuinstra",
+     "LD",
+     124
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "Kilburn": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Eddie Hanson",
+     "Lab",
+     970
+    ],
+    [
+     "Ash Atkinson",
+     "Green",
+     954
+    ],
+    [
+     "Andre Lopez-Turner",
+     "Green",
+     880
+    ],
+    [
+     "Robert Thompson",
+     "Lab",
+     828
+    ],
+    [
+     "Mukhtar Moalin",
+     "Green",
+     795
+    ],
+    [
+     "Nanouche Umeadi",
+     "Lab",
+     732
+    ],
+    [
+     "Ben Storrs",
+     "Con",
+     307
+    ],
+    [
+     "Rahoul Bhansali",
+     "Con",
+     293
+    ],
+    [
+     "Andrew Preston",
+     "Reform",
+     292
+    ],
+    [
+     "Carole Ricketts",
+     "Con",
+     278
+    ],
+    [
+     "Mac Harwood",
+     "Reform",
+     269
+    ],
+    [
+     "Tracey Shackle",
+     "LD",
+     261
+    ],
+    [
+     "Hamir Patel",
+     "LD",
+     220
+    ],
+    [
+     "Daviyan Kothari",
+     "LD",
+     208
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "King's Cross": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Lotis Bautista",
+     "Lab",
+     1048
+    ],
+    [
+     "Jonathan Simpson",
+     "Lab",
+     995
+    ],
+    [
+     "Liam Martin-Lane",
+     "Lab",
+     979
+    ],
+    [
+     "Joel Anderson",
+     "CPA",
+     778
+    ],
+    [
+     "Shezan Renny",
+     "CPA",
+     694
+    ],
+    [
+     "Paul Renny",
+     "CPA",
+     687
+    ],
+    [
+     "Joan Baktis",
+     "LD",
+     236
+    ],
+    [
+     "Andre Cowell-Berry",
+     "Reform",
+     224
+    ],
+    [
+     "Cat Frost",
+     "Con",
+     224
+    ],
+    [
+     "Elizabeth Pearson",
+     "LD",
+     218
+    ],
+    [
+     "Anthony Hegarty",
+     "Reform",
+     212
+    ],
+    [
+     "Derek McAuley",
+     "LD",
+     204
+    ],
+    [
+     "Robyn Gardner",
+     "Con",
+     194
+    ],
+    [
+     "Tom Hatton",
+     "Con",
+     186
+    ],
+    [
+     "Luke McCarthy",
+     "NHPUK",
+     60
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "Primrose Hill": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Dan Corby",
+     "Lab",
+     1209
+    ],
+    [
+     "Lauren Keiles",
+     "Lab",
+     1196
+    ],
+    [
+     "Suleiman Osman",
+     "Lab",
+     1013
+    ],
+    [
+     "Esmeralda Akpoke",
+     "Con",
+     977
+    ],
+    [
+     "Paul Tavares",
+     "Con",
+     956
+    ],
+    [
+     "Shajib Ziffer",
+     "Con",
+     794
+    ],
+    [
+     "Tom Ash",
+     "Green",
+     785
+    ],
+    [
+     "Helen Tindale",
+     "Green",
+     749
+    ],
+    [
+     "Matthew Wrigley",
+     "Green",
+     621
+    ],
+    [
+     "David Flatley",
+     "Reform",
+     340
+    ],
+    [
+     "Catherine Hays",
+     "LD",
+     328
+    ],
+    [
+     "Nik Lodenos",
+     "Reform",
+     292
+    ],
+    [
+     "Nicholas Theodorou",
+     "Reform",
+     290
+    ],
+    [
+     "Lawrence Nicholson",
+     "LD",
+     289
+    ],
+    [
+     "Lenka Fekulova",
+     "LD",
+     251
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "Regent's Park": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Victoria Mery",
+     "Green",
+     1138
+    ],
+    [
+     "Muhammed Naser",
+     "Green",
+     1054
+    ],
+    [
+     "Ruman Jaigirdar",
+     "Green",
+     1010
+    ],
+    [
+     "Nasim Ali",
+     "Lab",
+     973
+    ],
+    [
+     "Heather Johnson",
+     "Lab",
+     929
+    ],
+    [
+     "Nadia Shah",
+     "Lab",
+     905
+    ],
+    [
+     "Sean Fairbrother",
+     "Reform",
+     354
+    ],
+    [
+     "Dean Goldenberg",
+     "Reform",
+     331
+    ],
+    [
+     "Beverley Martin",
+     "Reform",
+     321
+    ],
+    [
+     "Martin Sheppard",
+     "Con",
+     274
+    ],
+    [
+     "Vladimir Chorniy",
+     "Con",
+     262
+    ],
+    [
+     "Alexandra Marsanu",
+     "Con",
+     240
+    ],
+    [
+     "Christopher Gayford",
+     "LD",
+     189
+    ],
+    [
+     "Mary Stainer",
+     "LD",
+     170
+    ],
+    [
+     "Farhan Islam",
+     "LD",
+     113
+    ],
+    [
+     "Jose Fafian",
+     "NHP",
+     46
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "South Hampstead": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Izzy Lenga",
+     "Lab",
+     1006
+    ],
+    [
+     "Francesca Reynolds",
+     "Lab",
+     930
+    ],
+    [
+     "Arun Kumar",
+     "Lab",
+     925
+    ],
+    [
+     "Susan Aykroyd",
+     "Con",
+     816
+    ],
+    [
+     "Tara Copeland",
+     "LD",
+     795
+    ],
+    [
+     "Andrea Cornwell",
+     "Green",
+     758
+    ],
+    [
+     "CJ Jessup",
+     "Green",
+     711
+    ],
+    [
+     "Pranay Hariharan",
+     "LD",
+     706
+    ],
+    [
+     "Laurence Lodge",
+     "LD",
+     693
+    ],
+    [
+     "Andy Marsh",
+     "Con",
+     679
+    ],
+    [
+     "Wakjira Feyesa",
+     "Con",
+     637
+    ],
+    [
+     "John Payne",
+     "Green",
+     618
+    ],
+    [
+     "Douglas De Morais",
+     "Reform",
+     261
+    ],
+    [
+     "Valerie Moss",
+     "Reform",
+     247
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "St Pancras and Somers Town": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Samata Khatoon",
+     "Lab",
+     1092
+    ],
+    [
+     "Shah Miah",
+     "Lab",
+     1018
+    ],
+    [
+     "Shah Bakth",
+     "CPA",
+     999
+    ],
+    [
+     "Edmund Frondigoun",
+     "Lab",
+     978
+    ],
+    [
+     "Sarah Friday",
+     "CPA",
+     943
+    ],
+    [
+     "Raqhib Islam",
+     "CPA",
+     906
+    ],
+    [
+     "William Bennett",
+     "Reform",
+     432
+    ],
+    [
+     "Solomon Gold",
+     "Reform",
+     367
+    ],
+    [
+     "Theodore Roth",
+     "Reform",
+     366
+    ],
+    [
+     "Hannah Billington",
+     "LD",
+     265
+    ],
+    [
+     "Stewart Jenkins",
+     "LD",
+     192
+    ],
+    [
+     "David Elkan",
+     "LD",
+     191
+    ],
+    [
+     "Alex Ellis",
+     "Con",
+     188
+    ],
+    [
+     "David Roberts",
+     "Con",
+     162
+    ],
+    [
+     "Cosmo Webster",
+     "Con",
+     161
+    ],
+    [
+     "Angel Daden",
+     "NHPUK",
+     65
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  },
+  "West Hampstead": {
+   "seats": 3,
+   "candidates": [
+    [
+     "Janet Grauberg",
+     "LD",
+     1421
+    ],
+    [
+     "Patrick Stillman",
+     "LD",
+     1164
+    ],
+    [
+     "Arti Wadhwani",
+     "LD",
+     1068
+    ],
+    [
+     "Sharon Hardwick",
+     "Lab",
+     782
+    ],
+    [
+     "Jane Walby",
+     "Green",
+     661
+    ],
+    [
+     "Leo Gordon",
+     "Lab",
+     629
+    ],
+    [
+     "Les Levidow",
+     "Green",
+     601
+    ],
+    [
+     "Tabby Merrison-Galvin",
+     "Lab",
+     596
+    ],
+    [
+     "Jason Pritchard",
+     "Green",
+     586
+    ],
+    [
+     "Ewan Cameron",
+     "Con",
+     376
+    ],
+    [
+     "Jacob Solon",
+     "Con",
+     298
+    ],
+    [
+     "Aarti Joshi",
+     "Con",
+     268
+    ],
+    [
+     "Eitan Saloniki",
+     "Reform",
+     224
+    ],
+    [
+     "Julios Samarxhiu",
+     "Reform",
+     201
+    ]
+   ],
+   "turnout": null,
+   "electorate": null
+  }
+ }
+}
