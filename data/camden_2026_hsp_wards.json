@@ -76,7 +76,12 @@
      241
     ]
    ],
-   "rejected": 11
+   "rejected": 11,
+   "elected_declared": [
+    "Carr, Lilac",
+    "Francis, Sabrina",
+    "Harrison, Adam Douglas Keir"
+   ]
   },
   "Camden Square": {
    "seats": 2,
@@ -138,7 +143,11 @@
      93
     ]
    ],
-   "rejected": 8
+   "rejected": 8,
+   "elected_declared": [
+    "Abdi-Wali, Sagal",
+    "Leman, Tricia"
+   ]
   },
   "Camden Town": {
    "seats": 2,
@@ -195,7 +204,11 @@
      96
     ]
    ],
-   "rejected": 5
+   "rejected": 5,
+   "elected_declared": [
+    "Callaghan, Pat",
+    "Cooper, Matt"
+   ]
   },
   "Haverstock": {
    "seats": 3,
@@ -272,7 +285,12 @@
      298
     ]
    ],
-   "rejected": 11
+   "rejected": 11,
+   "elected_declared": [
+    "Atolagbe, Kemi",
+    "Djemai, Nasrine Kahina",
+    "Filer, Rebecca Claire"
+   ]
   },
   "Holborn and Covent Garden": {
    "seats": 3,
@@ -364,7 +382,12 @@
      1144
     ]
    ],
-   "rejected": 19
+   "rejected": 19,
+   "elected_declared": [
+    "Chowdhury, Hamza",
+    "Monahan, Jim",
+    "White, James"
+   ]
   },
   "Kentish Town North": {
    "seats": 2,
@@ -421,7 +444,11 @@
      1351
     ]
    ],
-   "rejected": 7
+   "rejected": 7,
+   "elected_declared": [
+    "McNamara, Sylvia Ann",
+    "Slater, James Samuel"
+   ]
   },
   "Kentish Town South": {
    "seats": 3,
@@ -498,7 +525,12 @@
      1320
     ]
    ],
-   "rejected": 12
+   "rejected": 12,
+   "elected_declared": [
+    "Apak, Meric",
+    "Ball, Joseph William",
+    "Williams, Annabelle Tamsin"
+   ]
   },
   "King's Cross": {
    "seats": 3,
@@ -581,7 +613,12 @@
     ]
    ],
    "rejected": 15,
-   "note": "No Green candidate stood in King's Cross in 2026"
+   "note": "No Green candidate stood in King's Cross in 2026",
+   "elected_declared": [
+    "Bautista, Lotis Melisande",
+    "Martin-Lane, Liam Jamal Dominic",
+    "Simpson, Jonathan Andrew"
+   ]
   },
   "Primrose Hill": {
    "seats": 3,
@@ -664,7 +701,12 @@
     ]
    ],
    "rejected": 16,
-   "note": "Ward split between Holborn & St Pancras (PD TB) and Hampstead & Highgate (PDs TA, TC)"
+   "note": "Ward split between Holborn & St Pancras (PD TB) and Hampstead & Highgate (PDs TA, TC)",
+   "elected_declared": [
+    "Corby, Dan",
+    "Keiles, Lauren",
+    "Osman, Suleiman Mohamoud"
+   ]
   },
   "Regent's Park": {
    "seats": 3,
@@ -752,7 +794,12 @@
     ]
    ],
    "rejected": 13,
-   "note": "Muhammad Abu Naser (Green) was elected here in May and then found ineligible, triggering the by-election of 9 July 2026, which Labour won. The May result below is the declaration as made."
+   "note": "Muhammad Abu Naser (Green) was elected here in May and then found ineligible, triggering the by-election of 9 July 2026, which Labour won. The May result below is the declaration as made.",
+   "elected_declared": [
+    "Jaigirdar, Ruman",
+    "Mery, Victoria",
+    "Naser, Muhammad Abu"
+   ]
   },
   "St Pancras and Somers Town": {
    "seats": 3,
@@ -840,7 +887,13 @@
     ]
    ],
    "rejected": 10,
-   "note": "No Green candidate stood in St Pancras and Somers Town in 2026; Camden People's Alliance (CPA) stood a full slate"
+   "note": "No Green candidate stood in St Pancras and Somers Town in 2026; Camden People's Alliance (CPA) stood a full slate",
+   "elected_declared": [
+    "Bakth, Shah Abdul Majeed",
+    "Khatoon, Samata",
+    "Miah, Shah"
+   ]
   }
- }
+ },
+ "elected_note": "elected_declared lists the winners exactly as the returning officer declared them on each ward's results page. build_hsp_data.py computes the winners independently as the top N candidates by votes and asserts the two agree, so a transcription slip in the vote counts cannot pass unnoticed."
 }

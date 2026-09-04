@@ -42,6 +42,11 @@ html,body{height:100%;margin:0;overflow:hidden;background:var(--bg);color:var(--
 #map{position:absolute;top:0;bottom:0;left:370px;right:12px}
 body.detail-open #map{right:414px}
 svg{width:100%;height:100%;display:block}
+details.slate{margin:6px 0 2px;border-top:1px solid #e2dfd7;padding-top:6px}
+details.slate summary{cursor:pointer;font-size:12px;color:#6b675c;padding:2px 0}
+details.slate summary:hover{color:#16150f}
+details.slate tr.won td{background:#f4f7f2}
+details.slate tr.won td:last-child{color:#1b6b34;white-space:nowrap}
 .ward{stroke:#fff;stroke-width:2;cursor:pointer;transition:stroke-width .12s}
 .ward:hover{stroke:#12130f;stroke-width:3.5}
 .ward.sel{stroke:#12130f;stroke-width:4.5}
@@ -179,6 +184,12 @@ const METRICS = [
   {id:'lab', label:'Labour share, May 2026', kind:'seq', unit:'%', dom:[30,48],
    get:w=>w.derived.lab_share_2026,
    desc:'Best-performing Labour candidate, on the same basis.'},
+  {id:'seats', label:'Council seats held by the Greens', kind:'seq', unit:'', dom:[0,3],
+   get:w=>((D.council&&D.council.by_ward&&D.council.by_ward[w.ward]||{}).now||{}).Green||0,
+   desc:'Green councillors sitting for the ward today, out of its two or three seats. This is the current holding, not the May result: the July by-election moved one Regent\u2019s Park seat from Green to Labour.'},
+  {id:'margin', label:'Margin of the last seat, May 2026', kind:'seq', unit:'', dom:[0,220],
+   get:w=>(w.e2026.last_seat_margin||{}).votes,
+   desc:'Votes between the last candidate elected and the first not elected. Small numbers mark the genuinely marginal wards; in eight of the eleven that final seat was decided across party lines.'},
   {id:'gsw', label:'Green change, 2022 to 2026', kind:'div', unit:'pts', dom:[-24,24],
    get:w=>w.derived.green_swing_22_26,
    desc:'Change in the Green share since the 2022 locals. Blank where the Greens did not stand in one of the two years, which is five of the eleven wards.'},
@@ -369,6 +380,46 @@ function byelectionTable(ward){
   }).join('');
 }
 
+// The best-candidate summary is the right comparator between wards, but it hides
+// who actually won the seats and how close the last one was. In a multi-member
+// ward electors have as many votes as there are seats and may split them, so the
+// winners are the top N overall, not the top N of the leading party. Both views
+// are here: the summary above, the full declaration below.
+// Who sits for the ward today. May 2026 gave the seats; the July by-election has
+// since moved one. A campaign needs the current holding, not election night's.
+function councillorLine(w){
+  const c = D.council && D.council.by_ward && D.council.by_ward[w.ward];
+  if (!c) return '';
+  const fmt = o => Object.entries(o).map(([p,n]) =>
+    `<span class="chip" style="background:${(PARTY[p]||PARTY.Other).c}"></span>${n} ${
+      (PARTY[p]||PARTY.Other).n}`).join(' &nbsp;');
+  const changed = JSON.stringify(c.may2026) !== JSON.stringify(c.now);
+  return `<p class="note" style="margin-top:8px"><b>Councillors now:</b> ${fmt(c.now)}${
+    changed ? ` <span class="mute">(May 2026: ${fmt(c.may2026)}, changed at the by-election)</span>` : ''}</p>`;
+}
+
+function slateTable(e, id){
+  if (!e || !e.slate) return '';
+  const seatsWon = Object.entries(e.seats_won || {})
+    .map(([p,n]) => `${n} ${(PARTY[p]||PARTY.Other).n}`).join(', ');
+  const m = e.last_seat_margin;
+  const rows = e.slate.map(c =>
+    `<tr class="${c.elected ? 'won' : ''}"><td class="p"><span class="chip" style="background:${
+      (PARTY[c.party]||PARTY.Other).c}"></span>${(PARTY[c.party]||PARTY.Other).n}</td>
+      <td>${c.candidate}</td><td>${c.votes.toLocaleString()}</td>
+      <td class="win">${c.elected ? '<b>elected</b>' : ''}</td></tr>`).join('');
+  return `<details class="slate"><summary>All ${e.slate.length} candidates and who won${
+      seatsWon ? ' — ' + seatsWon : ''}</summary>
+    <table><thead><tr><th>Party</th><th>Candidate</th><th>Votes</th><th></th></tr></thead>
+    <tbody>${rows}</tbody></table>
+    ${m ? `<p class="note${m.cross_party ? '' : ' mute'}">Last seat won by
+      <b>${m.votes.toLocaleString()} vote${m.votes===1?'':'s'}</b>:
+      ${(PARTY[m.held_by]||PARTY.Other).n} ${m.winner.split(',')[0]} over
+      ${(PARTY[m.missed_by]||PARTY.Other).n} ${m.runner_up.split(',')[0]}.${
+      m.cross_party ? ' A seat changed hands on that margin.' : ''}</p>` : ''}
+  </details>`;
+}
+
 function select(name){
   SEL = name;
   Object.keys(PATHS).forEach(k => { if (!k.includes('::')) PATHS[k].classList.toggle('sel', k === name); });
@@ -381,9 +432,12 @@ function select(name){
     ${w.in_constituency_frac_pop < .9 ? `<p class="note" style="color:#a91b2e"><b>Only about ${
       Math.round(w.in_constituency_frac_pop*100)}% of this ward's residents are in the seat.</b> ${w.note||''}</p>` : ''}
     ${w.note && w.in_constituency_frac_pop >= .9 ? `<p class="note">${w.note}</p>` : ''}
+    ${councillorLine(w)}
     ${byelectionTable(w.ward)}
     ${resultTable(w.e2026, 'May 2026 locals', true)}
+    ${slateTable(w.e2026)}
     ${resultTable(w.e2022, 'May 2022 locals')}
+    ${slateTable(w.e2022)}
     <h2 style="margin-top:14px">Who lives here</h2>
     ${st('Population (2021)', (c.population||0).toLocaleString())}
     ${st('Private renting', c.private_rent_pct + '%')}
@@ -464,6 +518,12 @@ function init(){
   const BY = (D.byelections && D.byelections.contests) || [];
   const rp = BY.find(c => c.ward === "Regent's Park");
   const byPre = BY.filter(c => !c.vs_may2026.comparable);
+  const C = D.council;
+  const marg = W.filter(w => (w.e2026.last_seat_margin||{}).cross_party);
+  const margTight = marg.filter(w => w.e2026.last_seat_margin.votes < 50)
+                        .sort((a,b) => a.e2026.last_seat_margin.votes - b.e2026.last_seat_margin.votes);
+  const gvl = margTight.filter(w => { const m = w.e2026.last_seat_margin;
+    return (m.held_by === 'Green' && m.missed_by === 'Lab') || (m.held_by === 'Lab' && m.missed_by === 'Green'); });
   const wd = n => W.find(w => w.ward === n);
   const KX = wd("King's Cross"), SP = wd('St Pancras and Somers Town');
   const tRise = W.filter(w => (w.derived.turnout_change_22_26 || 0) > 0).length;
@@ -481,7 +541,7 @@ function init(){
   const lV = Math.round(W.reduce((s,w) => s + wtd(w,'Lab'), 0));
 
   document.getElementById('findings').innerHTML = `
-    <h2>Nine things in the numbers</h2>
+    <h2>Ten things in the numbers</h2>
     <ol>
       <li><b>The nine-point gap is mostly an artefact of not standing.</b> Across all eleven wards
         Labour led the Greens by ${(L.all_wards.shares.Lab - L.all_wards.shares.Green).toFixed(1)}
@@ -523,6 +583,14 @@ function init(){
         advance, so the gap measures eighteen months of change, not what low turnout does.
         Only Regent's Park is a turnout test. The map keeps the two apart, and so should any
         claim built on them.</li>
+      <li><b>Labour holds ${C.now.Lab} of the ${C.total_seats} council seats, the Greens ${C.now.Green}.</b>
+        The Greens hold all three in Holborn and Covent Garden, two of three in Regent's Park after
+        July, and one in Bloomsbury. But the ward totals hide how narrow that is. In <b>every one
+        of the eleven wards</b> the last seat was won across party lines, and in
+        ${margTight.length} of them by under fifty votes: ${
+        margTight.map(m => `${m.ward} by ${m.e2026.last_seat_margin.votes}`).join(', ')}.
+        ${gvl.length} of those were Green against Labour. The two parties are separated here by
+        margins a single canvassing round could cover, in both directions.</li>
       <li><b>Turnout rose in ${tRise} of the eleven wards and varies enormously.</b> From
         ${tLo.e2026.turnout_pct}% in ${tLo.ward} to ${tHi.e2026.turnout_pct}% in ${tHi.ward}.
         It fell only in ${W.find(w => (w.derived.turnout_change_22_26||0) <= 0).ward}, by

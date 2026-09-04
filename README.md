@@ -22,7 +22,7 @@ its full 2026 and 2022 results, its census profile and its polling districts.
 Everything the colours encode is also available as plain text through the
 "Table view" button.
 
-## Three things in it
+## Four things in it
 
 1. **The nine-point gap is mostly an artefact of not standing.** Across all
    eleven wards Labour led the Greens by 9.2 points in May 2026. Across the nine
@@ -47,6 +47,12 @@ Everything the colours encode is also available as plain text through the
    effect. The dataset marks this with a `comparable` flag on every comparison and
    the page refuses to draw the turnout inference from them. Only Regent's Park is
    a turnout test.
+
+4. **Every ward's last seat was won across party lines, eight of them by under
+   fifty votes.** Camden Square by 18, Bloomsbury by 19, St Pancras and Somers
+   Town by 21, then four more under fifty. Six of those eight were Green against
+   Labour. Labour holds 23 of the seat's 30 council seats and the Greens 6, but
+   those totals sit on margins a single canvassing round could cover.
 
 ## What it is not
 

@@ -68,6 +68,41 @@ def best_by_party(cands):
             out[p] = (name, v)
     return out
 
+def elect(cands, seats, declared=None):
+    """Who actually won the seats, and how close the last one was.
+
+    Electors have as many votes as there are seats and may split them across
+    parties, so the winners are simply the top N candidates by votes, regardless
+    of party. Where the declaration is available the result is asserted against
+    it, so a mistyped vote count cannot quietly change who holds a seat.
+
+    Returns the ranked slate with an `elected` flag, seats won per party, and the
+    margin between the last seat won and the first seat missed — which is the
+    number that decides whether a ward is really contested.
+    """
+    ranked = sorted(cands, key=lambda c: -c[2])
+    winners = ranked[:seats]
+    if declared is not None:
+        got, want = sorted(n for n, _, _ in winners), sorted(declared)
+        assert got == want, f'computed winners {got} != declared {want}'
+    won = {}
+    for _, party, _ in winners:
+        won[party] = won.get(party, 0) + 1
+    margin = None
+    if len(ranked) > seats:
+        last, first_out = ranked[seats - 1], ranked[seats]
+        margin = {'votes': last[2] - ranked[seats][2],
+                  'held_by': last[1], 'missed_by': first_out[1],
+                  'winner': last[0], 'runner_up': first_out[0],
+                  'cross_party': last[1] != first_out[1]}
+    return {
+        'slate': [{'candidate': n, 'party': party, 'votes': v, 'elected': i < seats}
+                  for i, (n, party, v) in enumerate(ranked)],
+        'seats_won': dict(sorted(won.items(), key=lambda kv: -kv[1])),
+        'last_seat_margin': margin,
+    }
+
+
 def load_2026():
     return json.load(open(D('camden_2026_hsp_wards.json')))['wards']
 
@@ -135,6 +170,57 @@ def load_imd():
     return out
 
 # ---------------------------------------------------------------- build
+
+def council_composition(out_wards, byelections):
+    """Who holds the 30 council seats in this seat now, not on election night.
+
+    May 2026 gave the seats; the July 2026 Regent's Park by-election has since
+    moved one from Green to Labour. Any by-election held after the all-out
+    election replaces one seat in its ward, so the composition is rebuilt rather
+    than copied from the declarations. By-elections predating May 2026 changed
+    nothing that survived it and are skipped.
+    """
+    may, now, per_ward = {}, {}, {}
+    for w in out_wards:
+        won = dict((w.get('e2026') or {}).get('seats_won') or {})
+        per_ward[w['ward']] = {'may2026': dict(won), 'now': dict(won)}
+        for party, n in won.items():
+            may[party] = may.get(party, 0) + n
+    changes = []
+    for c in byelections.get('contests', []):
+        if c['date'] <= '2026-05-07':
+            continue
+        pw = per_ward.get(c['ward'])
+        if not pw:
+            continue
+        gained = c['result'][0]['party']
+        lost = None
+        for party, n in pw['now'].items():          # the outgoing councillor's party
+            if party != gained and n > 0:
+                lost = party
+        if c['ward'] == "Regent's Park":
+            lost = 'Green'                          # Naser, elected Green in May
+        if lost:
+            pw['now'][lost] -= 1
+            if pw['now'][lost] == 0:
+                del pw['now'][lost]
+        pw['now'][gained] = pw['now'].get(gained, 0) + 1
+        changes.append({'ward': c['ward'], 'date': c['date'], 'from': lost, 'to': gained})
+    for w, d in per_ward.items():
+        for party, n in d['now'].items():
+            now[party] = now.get(party, 0) + n
+    return {
+        'total_seats': sum(may.values()),
+        'may2026': dict(sorted(may.items(), key=lambda kv: -kv[1])),
+        'now': dict(sorted(now.items(), key=lambda kv: -kv[1])),
+        'changes_since': changes,
+        'by_ward': per_ward,
+        'note': ('The 30 council seats in the eleven wards of this constituency. Camden '
+                 'elects 55 councillors across 20 wards; the other 25 seats sit in Hampstead and '
+                 'Highgate. Primrose Hill\'s three seats are counted in full here even though only '
+                 'about a third of that ward is in this seat.'),
+    }
+
 
 def build_byelections(out_wards):
     """Every by-election held in a ward of this seat since the 2022 all-out elections.
@@ -242,6 +328,8 @@ def main():
             pop_in += rec['pop'] * rec['hsp_frac']
         in_frac_pop = round(pop_in / pop_all, 3) if pop_all else None
 
+        el26 = elect(r['candidates'], r['seats'], r.get('elected_declared'))
+        el22 = elect(w22_pre['candidates'], r['seats']) if (w22_pre := wikitab['2022'].get(wname)) else None
         best26 = best_by_party(r['candidates'])
         tot26 = sum(v for _, v in best26.values())
         share26 = {p: round(100.0 * v / tot26, 1) for p, (_, v) in best26.items()}
@@ -295,12 +383,17 @@ def main():
                 'best': {p: {'candidate': n, 'votes': v, 'share_pct': share26[p]}
                          for p, (n, v) in sorted(best26.items(), key=lambda kv: -kv[1][1])},
                 'contested_by_green': 'Green' in best26,
+                'slate': el26['slate'],
+                'seats_won': el26['seats_won'],
+                'last_seat_margin': el26['last_seat_margin'],
             },
             'e2022': ({
                 'turnout_pct': t22, 'ballots': b22, 'electorate': elect22,
                 'best': {p: {'candidate': n, 'votes': v, 'share_pct': share22[p]}
                          for p, (n, v) in sorted(best22.items(), key=lambda kv: -kv[1][1])},
                 'contested_by_green': 'Green' in best22,
+                'slate': el22['slate'] if el22 else None,
+                'seats_won': el22['seats_won'] if el22 else None,
             } if w22 else None),
             'derived': {
                 'green_share_2026': g26,
@@ -458,7 +551,8 @@ def main():
         'wards': sorted(out_wards, key=lambda w: w['ward']),
         'lsoas': [],
         'polling_stations': [],
-        'byelections': build_byelections(out_wards),
+        'byelections': (_by := build_byelections(out_wards)),
+        'council': council_composition(out_wards, _by),
     }
 
     for code, rec in lsoa_rec.items():
