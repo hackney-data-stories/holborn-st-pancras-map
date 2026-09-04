@@ -14,7 +14,7 @@ page still touches nothing.)
 
 ## What it shows
 
-Eleven wards, coloured by any of twelve measures: the Green lead over Labour in
+Eleven wards, coloured by any of fifteen measures: the Green lead over Labour in
 the May 2026 locals, each party's share, the change since 2022, turnout and its
 change, electorate, and then census and deprivation context — private and social
 renting, students, age, and the Index of Multiple Deprivation. Click a ward for
@@ -53,6 +53,29 @@ Everything the colours encode is also available as plain text through the
    Town by 21, then four more under fifty. Six of those eight were Green against
    Labour. Labour holds 23 of the seat's 30 council seats and the Greens 6, but
    those totals sit on margins a single canvassing round could cover.
+
+## On the vote outside the main parties
+
+One layer shows the largest vote in each ward for a candidate outside Labour, the
+Conservatives, the Liberal Democrats, the Greens and Reform. **These candidates
+are not a bloc** — the two large figures are the Camden People's Alliance, a
+community slate; the two small ones are the National Housing Party, which stood on
+the opposite side of the argument. The layer names the party in every case.
+
+It exists because Andrew Feinstein took 18.9% here as an independent in 2024 and is
+not standing again, which makes that the largest unattached vote in the seat. It is
+**not** an estimate of where his votes came from, and this repository deliberately
+does not contain one. No ward-level 2024 general election data exists, so any such
+estimate would be a single constituency total allocated across eleven wards by an
+assumed proxy, unverifiable in principle because no ground truth will ever exist at
+that geography. The obvious proxy would be religious and ethnic demography, which
+would amount to profiling an electorate and presenting it as measurement.
+
+What the observed data supports is narrower and still useful: the Camden People's
+Alliance took 32.9% and 30.3% in St Pancras and Somers Town and King's Cross, and
+independents took 22.9%, 20.1% and 16.8% in the three by-elections since 2022.
+Feinstein's 18.9% sits inside that band. That indicates the size of the
+unaligned vote, not its location, and nothing here says whose it is now.
 
 ## What it is not
 

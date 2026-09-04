@@ -137,7 +137,7 @@ li{margin:0 0 4px}
     <div class="legkeys"><span id="lk0"></span><span id="lk1"></span></div>
     <p class="note mute" id="nodata" style="display:none">
       <span class="chip" style="background:#e8e6de;vertical-align:-1px"></span>
-      Grey, marked &ldquo;&mdash;&rdquo;: no Green candidate stood, so there is no figure to show.</p>
+      <span id="nodatatxt"></span></p>
     <p class="note" id="mdesc"></p>
     <div class="row">
       <button id="btnPS">Polling stations</button>
@@ -176,14 +176,18 @@ const SEQ = ['--s1','--s2','--s3','--s4','--s5','--s6','--s7'].map(css);
 // demographic pattern for a party result.
 const METRICS = [
   {id:'gap', label:'Green lead over Labour, May 2026', kind:'div', unit:'pts', dom:[-14,14],
-   get:w=>w.derived.green_lab_gap_2026,
+   get:w=>w.derived.green_lab_gap_2026, nodata:'no Green candidate stood, so there is nothing to compare',
    desc:'Best Green candidate minus best Labour candidate, in points of the ward vote. Positive means the Greens led the ward. Hatched wards are Labour-leading; every ward carries its number.'},
   {id:'green', label:'Green share, May 2026', kind:'seq', unit:'%', dom:[20,42],
-   get:w=>w.derived.green_share_2026,
+   get:w=>w.derived.green_share_2026, nodata:'no Green candidate stood',
    desc:'Best-performing Green candidate as a share of all parties’ best candidates. Two wards are blank because no Green candidate stood.'},
   {id:'lab', label:'Labour share, May 2026', kind:'seq', unit:'%', dom:[30,48],
    get:w=>w.derived.lab_share_2026,
    desc:'Best-performing Labour candidate, on the same basis.'},
+  {id:'unaligned', label:'Vote outside the main parties, May 2026', kind:'seq', unit:'%', dom:[0,34],
+   get:w=>(w.derived.unaligned_2026||{}).share_pct,
+   nodata:'no candidate stood outside the five main parties',
+   desc:'The largest vote for a candidate standing outside Labour, the Conservatives, the Liberal Democrats, the Greens and Reform. <b>These candidates are not a bloc.</b> The two large figures are the Camden People\u2019s Alliance, a community slate; the two small ones are the National Housing Party, which stood on the opposite side of the argument. Click a ward to see which. For the constituency-wide figure, Andrew Feinstein took 18.9% as an independent in 2024 — see the 2024 result in the panel above; no ward-level breakdown of that vote exists.'},
   {id:'seats', label:'Council seats held by the Greens', kind:'seq', unit:'', dom:[0,3],
    get:w=>((D.council&&D.council.by_ward&&D.council.by_ward[w.ward]||{}).now||{}).Green||0,
    desc:'Green councillors sitting for the ward today, out of its two or three seats. This is the current holding, not the May result: the July by-election moved one Regent\u2019s Park seat from Green to Labour.'},
@@ -191,7 +195,7 @@ const METRICS = [
    get:w=>(w.e2026.last_seat_margin||{}).votes,
    desc:'Votes between the last candidate elected and the first not elected. Small numbers mark the genuinely marginal wards; in eight of the eleven that final seat was decided across party lines.'},
   {id:'gsw', label:'Green change, 2022 to 2026', kind:'div', unit:'pts', dom:[-24,24],
-   get:w=>w.derived.green_swing_22_26,
+   get:w=>w.derived.green_swing_22_26, nodata:'no Green candidate in one of the two years',
    desc:'Change in the Green share since the 2022 locals. Blank where the Greens did not stand in one of the two years, which is five of the eleven wards.'},
   {id:'turn', label:'Turnout, May 2026', kind:'seq', unit:'%', dom:[31,50],
    get:w=>w.e2026.turnout_pct,
@@ -321,9 +325,13 @@ function paint(){
     ? `Labour ahead by ${Math.abs(a)}${cur.unit==='pts'?' pts':''}` : (cur.fmt?cur.fmt(a):a) + (cur.unit==='%'?'%':'');
   document.getElementById('lk1').textContent = cur.kind === 'div'
     ? `Green ahead by ${b}${cur.unit==='pts'?' pts':''}` : (cur.fmt?cur.fmt(b):b) + (cur.unit==='%'?'%':'');
-  document.getElementById('mdesc').textContent = cur.desc;
-  document.getElementById('nodata').style.display =
-    W.some(w => cur.get(w) == null) ? 'block' : 'none';
+  document.getElementById('mdesc').innerHTML = cur.desc;
+  const blanks = W.filter(w => cur.get(w) == null);
+  document.getElementById('nodata').style.display = blanks.length ? 'block' : 'none';
+  document.getElementById('nodatatxt').innerHTML = blanks.length
+    ? `Grey, marked &ldquo;&mdash;&rdquo;: ${cur.nodata || 'no figure for this ward'} (${
+        blanks.map(w => w.ward).join(', ')}).`
+    : '';
 }
 
 function tip(w, x, y){
@@ -522,6 +530,14 @@ function init(){
   const marg = W.filter(w => (w.e2026.last_seat_margin||{}).cross_party);
   const margTight = marg.filter(w => w.e2026.last_seat_margin.votes < 50)
                         .sort((a,b) => a.e2026.last_seat_margin.votes - b.e2026.last_seat_margin.votes);
+  const U = W.filter(w => (w.derived.unaligned_2026||{}).party === 'CPA')
+             .sort((a,b) => b.derived.unaligned_2026.share_pct - a.derived.unaligned_2026.share_pct);
+  // Best-placed independent in each by-election. Camden Square had two; listing
+  // both would give four figures for three contests.
+  const IND = BY.map(c => { const r = c.result.filter(x => x.party === 'Ind')
+                                     .sort((a,b) => b.votes - a.votes)[0];
+                            return r ? {ward:c.ward, share:r.share_pct} : null; })
+                .filter(Boolean).sort((a,b) => b.share - a.share);
   const gvl = margTight.filter(w => { const m = w.e2026.last_seat_margin;
     return (m.held_by === 'Green' && m.missed_by === 'Lab') || (m.held_by === 'Lab' && m.missed_by === 'Green'); });
   const wd = n => W.find(w => w.ward === n);
@@ -600,8 +616,15 @@ function init(){
         Green lead over Labour runs with social renting and against owner occupation and degree
         holding. Bloomsbury has the most students in the seat, ${wd('Bloomsbury').census2021.student_pct}%,
         and the Greens did not win it. See the table below, and the warning under it.</li>
-      <li><b>Andrew Feinstein's 7,312 votes from 2024 are unattached.</b> He has declined to stand.
-        No ward-level 2024 figures exist anywhere, so nothing in this data locates that vote.</li>
+      <li><b>Andrew Feinstein's 7,312 votes from 2024 are unattached, and cannot be located.</b>
+        He has declined to stand. No ward-level 2024 figures exist anywhere, so nothing in this
+        data says which parts of the seat gave him his 18.9%. What the data does show is that a
+        vote outside the main parties is reliably available here when someone credible asks for it:
+        the Camden People's Alliance took ${U.map(u => u.derived.unaligned_2026.share_pct + '%').join(' and ')}
+        in ${U.map(u => u.ward).join(' and ')} in May, winning a seat in the second, and independents
+        took ${IND.map(i => i.share + '%').join(', ')} in the three by-elections since 2022.
+        Feinstein's 18.9% sits inside that band. That tells you the bloc is real and roughly how
+        large — not where it lives, and not whose it is now.</li>
     </ol>`;
 
   const CO = META.correlations;

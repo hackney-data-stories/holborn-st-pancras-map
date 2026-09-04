@@ -103,6 +103,24 @@ def elect(cands, seats, declared=None):
     }
 
 
+# The five parties that contest the seat as national organisations. Everything
+# else — community slates, independents, the National Housing Party — is grouped
+# only by NOT being one of these. They are emphatically not a bloc: the Camden
+# People's Alliance and the National Housing Party sit at opposite ends of the
+# argument this constituency is having. The grouping measures the size of the
+# vote outside the main parties in each ward, and always reports who it was.
+ESTABLISHED = {'Lab', 'Con', 'LD', 'Green', 'Reform'}
+
+def unaligned(best, shares):
+    """Largest vote in the ward for a candidate outside the five main parties."""
+    cands = [(p, n, v) for p, (n, v) in best.items() if p not in ESTABLISHED]
+    if not cands:
+        return None
+    party, name, votes = max(cands, key=lambda c: c[2])
+    return {'party': party, 'candidate': name, 'votes': votes,
+            'share_pct': shares[party]}
+
+
 def load_2026():
     return json.load(open(D('camden_2026_hsp_wards.json')))['wards']
 
@@ -396,6 +414,7 @@ def main():
                 'seats_won': el22['seats_won'] if el22 else None,
             } if w22 else None),
             'derived': {
+                'unaligned_2026': unaligned(best26, share26),
                 'green_share_2026': g26,
                 'lab_share_2026': l26,
                 'green_lab_gap_2026': round(g26 - l26, 1) if (g26 is not None and l26 is not None) else None,
