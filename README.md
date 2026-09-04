@@ -69,7 +69,9 @@ python3 -m venv .venv
 .venv/bin/python build_page.py        # inlines it into public/index.html
 ```
 
-A clean checkout reproduces `public/hsp_map.json` byte for byte.
+A clean checkout reproduces `public/hsp_map.json` byte for byte. `./deploy.sh`
+rebuilds the page and ships it; the site is a direct-upload Pages project, so a
+push to GitHub does not redeploy it on its own.
 
 One input is not fetchable. Camden's ward result pages sit behind bot protection
 and refuse a scripted request, so the 7 May 2026 declarations were read from the
@@ -89,6 +91,7 @@ against the Wikipedia transcription, which agrees on all eleven wards.
 | `build_page.py` | Inlines the dataset; refuses to emit a page with external requests. |
 | `data/camden_2026_hsp_wards.json` | The one hand-transcribed input. |
 | `BRIEFING.md` | The longer written analysis. |
+| `deploy.sh` | Rebuilds the page and deploys it to Cloudflare Pages. |
 
 ## Who made this
 
