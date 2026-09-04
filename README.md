@@ -4,7 +4,7 @@ A ward-level map of the Holborn and St Pancras constituency, built for the
 by-election called on 1 September 2026 following the resignation of Keir Starmer.
 Every figure comes from published sources.
 
-**Live map:** https://holborn-st-pancras-map.bsg-george.workers.dev
+**Live map:** https://holborn-st-pancras-map.pages.dev
 
 Open `public/index.html` in any browser and it works offline. The page makes no
 network requests at all: no map tiles, no mapping library, no web fonts, no
