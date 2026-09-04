@@ -1,0 +1,5 @@
+# Public analysis of published election data. Indexing welcome.
+User-agent: *
+Allow: /
+
+Sitemap: https://holborn-st-pancras-map.pages.dev/sitemap.xml

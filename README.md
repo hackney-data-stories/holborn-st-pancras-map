@@ -8,7 +8,9 @@ Every figure comes from published sources.
 
 Open `public/index.html` in any browser and it works offline. The page makes no
 network requests at all: no map tiles, no mapping library, no web fonts, no
-analytics. The build refuses to produce a page that would.
+analytics. The build refuses to produce a page that would. (`og.png` is named in
+the metadata for link previews, but only crawlers ever fetch it — rendering the
+page still touches nothing.)
 
 ## What it shows
 
@@ -78,6 +80,17 @@ dataset or the template, run `build_page.py` and commit the regenerated
 `public/index.html` along with it. `./deploy.sh` still works for deploying
 without a push.
 
+The link-preview card is generated too, so it cannot drift from the data. Run
+`make_og_image.py` to rebuild `og_card.html`, then screenshot it at exactly
+1200x630 at 2x device scale:
+
+```bash
+python3 make_og_image.py
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless \
+  --disable-gpu --hide-scrollbars --force-device-scale-factor=2 \
+  --window-size=1200,630 --screenshot=public/og.png og_card.html
+```
+
 One input is not fetchable. Camden's ward result pages sit behind bot protection
 and refuse a scripted request, so the 7 May 2026 declarations were read from the
 rendered pages by hand and are committed at `data/camden_2026_hsp_wards.json`.
@@ -97,6 +110,8 @@ against the Wikipedia transcription, which agrees on all eleven wards.
 | `data/camden_2026_hsp_wards.json` | The one hand-transcribed input. |
 | `BRIEFING.md` | The longer written analysis. |
 | `deploy.sh` | Rebuilds the page and deploys it out of band, without a push. |
+| `make_og_image.py` | Regenerates `og_card.html`, the link-preview card, from the dataset. |
+| `public/og.png` | The link preview, 2400x1260. Rendered from `og_card.html`. |
 
 ## Who made this
 
