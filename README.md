@@ -35,10 +35,18 @@ Everything the colours encode is also available as plain text through the
    seat, 39.7%, and the Greens did not win it. Nine wards is a very small sample
    and these are correlations between ward averages, not between voters — the
    page says so at more length.
-3. **The July by-election shows what differential turnout does.** Regent's Park
-   voted again on 9 July 2026 on a 21.9% turnout, against 35.1% ten weeks
-   earlier. Labour took back a ward the Greens had swept in May, by 94 votes,
-   with an independent on 407.
+3. **The one clean by-election test points the wrong way for the Greens.**
+   Regent's Park voted again on 9 July 2026 on a 21.9% turnout, against 35.1% ten
+   weeks earlier. Labour took back a ward the Greens had swept in May, by 94
+   votes, with an independent on 407. The Green share fell 11.2 points on turnout
+   down 13.2. Same ward, same register, ten weeks apart.
+
+   Two earlier by-elections, Camden Square and Kentish Town South on 5 September
+   2024, are in the data too, but they sit *before* the Green advance, so their
+   low Green shares measure eighteen months of change rather than a turnout
+   effect. The dataset marks this with a `comparable` flag on every comparison and
+   the page refuses to draw the turnout inference from them. Only Regent's Park is
+   a turnout test.
 
 ## What it is not
 
@@ -51,7 +59,7 @@ a by-election is a third kind of contest again. Nothing here is a prediction.
 
 | Tier | What |
 |---|---|
-| **A** | Ward vote counts and turnout percentages, from Camden's own declarations. |
+| **A** | Ward vote counts and turnout percentages, from Camden's own declarations. So are all three by-elections, which being single-member contests have real shares of ballot papers rather than best-candidate shares. |
 | **B** | Electorates and ballot counts. Camden publishes turnout only as a percentage, so these are derived: ballots = votes ÷ published candidate share, electorate = ballots ÷ turnout. Where the shares are not published the 2022 register stands in; in the four wards where both years can be derived the two differ by under 5%. Census and deprivation figures, aggregated to wards by best-fit small area, are also Tier B. |
 | **C** | Anything about Primrose Hill, which straddles two constituencies. Only polling district TB is in this seat, roughly a third of the ward. |
 
@@ -107,7 +115,8 @@ against the Wikipedia transcription, which agrees on all eleven wards.
 | `fetch_sources.py` | Downloads every machine-fetchable source into `raw/`. |
 | `build_hsp_data.py` | Builds the dataset. |
 | `build_page.py` | Inlines the dataset; refuses to emit a page with external requests. |
-| `data/camden_2026_hsp_wards.json` | The one hand-transcribed input. |
+| `data/camden_2026_hsp_wards.json` | The 7 May 2026 declarations, hand-transcribed. |
+| `data/camden_byelections.json` | All three by-elections held in the seat since 2022. |
 | `BRIEFING.md` | The longer written analysis. |
 | `deploy.sh` | Rebuilds the page and deploys it out of band, without a push. |
 | `make_og_image.py` | Regenerates `og_card.html`, the link-preview card, from the dataset. |

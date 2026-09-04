@@ -339,6 +339,36 @@ function resultTable(e, title, basis){
     }. Share is of best candidates, not of ballot papers.</p>`;
 }
 
+// A by-election is a single-member contest, so its shares are of ballot papers,
+// not of best candidates. The two denominators are close enough to compare and
+// far enough apart to say so. `comparable` is false where the contest predates
+// the May 2026 locals, in which case the gap measures the Green advance since
+// 2024 rather than anything about turnout, and the page must not imply otherwise.
+function byelectionTable(ward){
+  const cs = (D.byelections && D.byelections.contests || []).filter(c => c.ward === ward);
+  if (!cs.length) return '';
+  return cs.map(c => {
+    const v = c.vs_may2026;
+    const rows = c.result.map(r =>
+      `<tr><td class="p"><span class="chip" style="background:${(PARTY[r.party]||PARTY.Other).c}"></span>${
+        (PARTY[r.party]||PARTY.Other).n}</td><td>${r.candidate.split(' ').slice(-1)[0]}</td>
+        <td>${r.votes.toLocaleString()}</td><td class="win">${r.share_pct}%</td></tr>`).join('');
+    const d = new Date(c.date).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+    return `<h2 style="margin-top:14px">By-election, ${d}</h2>
+      <p class="note mute" style="margin-top:-4px">${c.cause} <b>${c.outcome}.</b></p>
+      <table><thead><tr><th>Party</th><th>Candidate</th><th>Votes</th><th>Share</th></tr></thead>
+      <tbody>${rows}</tbody></table>
+      <p class="note mute">Turnout ${c.turnout_pct}% · ${c.valid_votes.toLocaleString()} valid votes${
+        c.rejected_total ? ', ' + c.rejected_total + ' rejected' : ''
+      } · electorate about ${c.est_electorate.toLocaleString()}. One seat, so shares are of ballot
+      papers, not of best candidates.</p>
+      ${v.green_change_pts == null ? '' : `<p class="note"${v.comparable ? '' : ' style="color:#6b675c"'}>
+        Green ${v.green_share_byelection}% here against ${v.green_share_may}% in the ward in May 2026,
+        <b>${sign(v.green_change_pts)} pts</b>, on turnout ${sign(v.turnout_change_pts)} pts.
+        ${v.comparable ? '' : '<b>Not a turnout test:</b> '}${v.why}</p>`}`;
+  }).join('');
+}
+
 function select(name){
   SEL = name;
   Object.keys(PATHS).forEach(k => { if (!k.includes('::')) PATHS[k].classList.toggle('sel', k === name); });
@@ -351,6 +381,7 @@ function select(name){
     ${w.in_constituency_frac_pop < .9 ? `<p class="note" style="color:#a91b2e"><b>Only about ${
       Math.round(w.in_constituency_frac_pop*100)}% of this ward's residents are in the seat.</b> ${w.note||''}</p>` : ''}
     ${w.note && w.in_constituency_frac_pop >= .9 ? `<p class="note">${w.note}</p>` : ''}
+    ${byelectionTable(w.ward)}
     ${resultTable(w.e2026, 'May 2026 locals', true)}
     ${resultTable(w.e2022, 'May 2022 locals')}
     <h2 style="margin-top:14px">Who lives here</h2>
@@ -430,7 +461,9 @@ function init(){
     <p class="note"><b>In the nine wards where a Green candidate stood</b>, the same sum reads Labour ${
       L.green_contested_wards_only.shares.Lab}% to Green ${L.green_contested_wards_only.shares.Green}%.</p>`;
 
-  const rp = D.byelection2026_regents_park;
+  const BY = (D.byelections && D.byelections.contests) || [];
+  const rp = BY.find(c => c.ward === "Regent's Park");
+  const byPre = BY.filter(c => !c.vs_may2026.comparable);
   const wd = n => W.find(w => w.ward === n);
   const KX = wd("King's Cross"), SP = wd('St Pancras and Somers Town');
   const tRise = W.filter(w => (w.derived.turnout_change_22_26 || 0) > 0).length;
@@ -448,7 +481,7 @@ function init(){
   const lV = Math.round(W.reduce((s,w) => s + wtd(w,'Lab'), 0));
 
   document.getElementById('findings').innerHTML = `
-    <h2>Eight things in the numbers</h2>
+    <h2>Nine things in the numbers</h2>
     <ol>
       <li><b>The nine-point gap is mostly an artefact of not standing.</b> Across all eleven wards
         Labour led the Greens by ${(L.all_wards.shares.Lab - L.all_wards.shares.Green).toFixed(1)}
@@ -472,11 +505,24 @@ function init(){
         In 2022 the Greens did not field a candidate in Holborn and Covent Garden at all, and
         polled ${wd("Regent's Park").e2022.best.Green.share_pct}% in Regent's Park. One of the
         three Regent's Park seats has since gone back to Labour at the July by-election.</li>
-      <li><b>Regent's Park went back to Labour in July on a ${rp.turnout_pct}% turnout.</b>
-        ${rp.result[0][1].split(' ').pop()} took ${rp.result[0][2]} votes to the Green
-        ${rp.result[1][2]}, a margin of ${rp.result[0][2]-rp.result[1][2]}, with an independent on
-        ${rp.result[2][2]}. Three months earlier the Greens had swept the ward. This is the only
-        post-May test in the seat and the closest thing in the data to a by-election.</li>
+      <li><b>The one real by-election test says turnout decides this.</b> Regent's Park voted again
+        on 9 July, ten weeks after the Greens swept it, and Labour took the seat back on a
+        ${rp.turnout_pct}% turnout against ${rp.vs_may2026.turnout_may}% in May.
+        ${rp.result[0].candidate.split(' ').pop()} took ${rp.result[0].votes} votes to the Green
+        ${rp.result[1].votes}, a margin of ${rp.result[0].votes - rp.result[1].votes}, with an
+        independent on ${rp.result[2].votes}. The Green share fell from
+        ${rp.vs_may2026.green_share_may}% to ${rp.vs_may2026.green_share_byelection}%,
+        <b>${sign(rp.vs_may2026.green_change_pts)} points</b>, on turnout down
+        ${Math.abs(rp.vs_may2026.turnout_change_pts)}. Same ward, same register, ten weeks apart:
+        this is the cleanest thing in the data, and it points the wrong way for the Greens.</li>
+      <li><b>Two earlier by-elections are a warning about reading the third.</b>
+        ${byPre.map(c => `${c.ward} and`).join(' ').replace(/ and$/,'')} both voted on 5 September
+        2024, on ${byPre.map(c => c.turnout_pct + '%').join(' and ')} turnouts, and Labour held
+        both. The Greens took ${byPre.map(c => c.vs_may2026.green_share_byelection + '%').join(' and ')}
+        there, far below their May 2026 shares — but those contests came <i>before</i> the Green
+        advance, so the gap measures eighteen months of change, not what low turnout does.
+        Only Regent's Park is a turnout test. The map keeps the two apart, and so should any
+        claim built on them.</li>
       <li><b>Turnout rose in ${tRise} of the eleven wards and varies enormously.</b> From
         ${tLo.e2026.turnout_pct}% in ${tLo.ward} to ${tHi.e2026.turnout_pct}% in ${tHi.ward}.
         It fell only in ${W.find(w => (w.derived.turnout_change_22_26||0) <= 0).ward}, by

@@ -136,6 +136,63 @@ def load_imd():
 
 # ---------------------------------------------------------------- build
 
+def build_byelections(out_wards):
+    """Every by-election held in a ward of this seat since the 2022 all-out elections.
+
+    These are single-member contests, so a share here is of ballot papers — unlike
+    the May figures, which are of each party's best candidate across a multi-member
+    ward. The two are built to be comparable and broadly are, but they are not the
+    same denominator, and the comparison is labelled as approximate wherever it is
+    drawn.
+
+    The July 2026 Regent's Park contest is the only clean differential-turnout test
+    in the data: same ward, same register, ten weeks after the May locals. The two
+    September 2024 contests sit BEFORE the May 2026 Green advance, so a lower Green
+    share in them is a measure of where the Greens were in 2024, not of what low
+    turnout does to them. That distinction is carried in `comparable` and must not
+    be dropped when these numbers are quoted.
+    """
+    src = json.load(open(D('camden_byelections.json')))
+    by_ward = {w['ward']: w for w in out_wards}
+    out = []
+    for b in src['byelections']:
+        votes = sum(v for _, _, v in b['result'])
+        rej = (b['rejected'] or {}).get('total', 0)
+        shares = {}
+        for party, _, v in b['result']:
+            shares[party] = round(shares.get(party, 0) + 100.0 * v / votes, 1)
+        w = by_ward.get(b['ward'])
+        may = (w or {}).get('e2026', {})
+        may_green = ((may.get('best') or {}).get('Green') or {}).get('share_pct')
+        may_turnout = may.get('turnout_pct')
+        post_may = b['date'] > '2026-05-07'
+        out.append({
+            'ward': b['ward'], 'date': b['date'], 'seats': b['seats'],
+            'turnout_pct': b['turnout_pct'], 'cause': b['cause'], 'outcome': b['outcome'],
+            'valid_votes': votes, 'rejected_total': rej,
+            'est_electorate': round((votes + rej) / b['turnout_pct'] * 100),
+            'result': [{'party': p, 'candidate': n, 'votes': v,
+                        'share_pct': round(100.0 * v / votes, 1)} for p, n, v in b['result']],
+            'vs_may2026': {
+                'green_share_may': may_green,
+                'green_share_byelection': shares.get('Green'),
+                'green_change_pts': (round(shares['Green'] - may_green, 1)
+                                     if may_green is not None and 'Green' in shares else None),
+                'turnout_may': may_turnout,
+                'turnout_change_pts': (round(b['turnout_pct'] - may_turnout, 1)
+                                       if may_turnout is not None else None),
+                'comparable': post_may,
+                'why': ('Same ward and register ten weeks after the May locals, so the fall is a '
+                        'differential-turnout effect.' if post_may else
+                        'Held BEFORE the May 2026 locals, so the gap measures the Green advance '
+                        'between 2024 and 2026, not what low turnout does. Not a turnout test.'),
+            },
+            'prov': 'Camden Council declaration',
+        })
+    return {'note': src['note'], 'source': src['source'],
+            'contests': sorted(out, key=lambda x: x['date'], reverse=True)}
+
+
 def main():
     hsp, wards, lsoas = load_geo()
     res26 = load_2026()
@@ -401,15 +458,7 @@ def main():
         'wards': sorted(out_wards, key=lambda w: w['ward']),
         'lsoas': [],
         'polling_stations': [],
-        'byelection2026_regents_park': {
-            'date': '2026-07-09', 'turnout_pct': 21.93,
-            'result': [['Lab', 'Nanouche Umeadi', 576], ['Green', 'Alice Amelia Brown', 482],
-                       ['Ind', 'Mohammad Junayd Khan', 407], ['Con', 'Vladimir Chorniy', 137],
-                       ['Reform', 'Beverley Janet Martin', 123], ['LD', 'Henry William Windle Potts', 51]],
-            'prov': 'Camden Council declaration, camden.gov.uk',
-            'note': 'Labour gain from Green on a 21.9% turnout, three months after the Greens '
-                    'swept the ward. The only post-May electoral test in the seat.',
-        },
+        'byelections': build_byelections(out_wards),
     }
 
     for code, rec in lsoa_rec.items():

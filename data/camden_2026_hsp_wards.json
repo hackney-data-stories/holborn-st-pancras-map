@@ -1,38 +1,846 @@
 {
  "source": "camden.gov.uk 'Local election results 2026' ward pages, read 2026-09-04 (official declared results, 7 May 2026)",
  "wards": {
-  "Bloomsbury": {"seats":3,"turnout_pct":33.76,"candidates":[
-   ["Barnett, Kenneth Dowie","LD",172],["Bhangal, Paul","Con",181],["Carr, Lilac","Green",846],["Cooke, Christopher","Reform",251],["Cooke, Katie Marie","LD",198],["Francis, Sabrina","Lab",910],["Frost, William","Con",266],["Harrison, Adam Douglas Keir","Lab",886],["Leach, Stuart","Con",236],["Lewin, Jonathan James Geneste","LD",198],["Lukyanov, Volodymyr","Green",763],["Madlani, Rishi","Lab",827],["Parsfield, Matthew","Green",817],["Samuel, Richard","Reform",241]],
-   "rejected":11},
-  "Camden Square": {"seats":2,"turnout_pct":36.89,"candidates":[
-   ["Abdi-Wali, Sagal","Lab",890],["Britton, Michael Mickey","Ind",162],["Doyle, Helen","Green",830],["Freeman, Roger","Con",119],["Haswell, Adam","Green",687],["Leman, Tricia","Lab",848],["Newman, Benjamin","LD",164],["Ojeda-Sanchez, Juan","Reform",151],["Pearce, Oliver Conrad","Reform",162],["Tomas, Samel","LD",106],["Webb, Jamie","Con",93]],
-   "rejected":8},
-  "Camden Town": {"seats":2,"turnout_pct":32.42,"candidates":[
-   ["Callaghan, Pat","Lab",746],["Cooper, Matt","Lab",620],["Goldsmith, Peter","Green",583],["Haig, David","Reform",142],["Kafton, James","Con",113],["Kirk, Ekaterina","LD",111],["Lee, Susan","Con",109],["Nelson, Philip","Green",544],["Offer, Rafe","LD",84],["Vaidya, Vedamsh","Reform",96]],
-   "rejected":5},
-  "Haverstock": {"seats":3,"turnout_pct":37.99,"candidates":[
-   ["Atolagbe, Kemi","Lab",1366],["Burge, Katharine Alison","LD",351],["Djemai, Nasrine Kahina","Lab",1255],["Farah, Mohamed","Green",1209],["Filer, Rebecca Claire","Lab",1322],["Hakimi, Aziz","Green",1034],["Mackenzie-Lawrie, Josh","Con",320],["Mecava, Andrej","Green",1117],["Moaveni, Alidad","LD",220],["Oh-Eineagain, Aindrias","Reform",300],["Tobin, Joseph Lyle","LD",259],["Webber, John","Con",319],["Wheater, Robert","Reform",313],["Williams, Alex","Con",298]],
-   "rejected":11},
-  "Holborn and Covent Garden": {"seats":3,"turnout_pct":37.40,"candidates":[
-   ["Barabas, Stephen Paul","LD",182],["Chowdhury, Hamza","Green",1271],["Dervish, Atlan Ramadan","Reform",263],["Frost, Alison","Con",248],["Frost, Tim","Con",220],["Fulbrook, Julian","Lab",1035],["Furnell, Mark","NHP",166],["Kane, Michael Anthony","Reform",309],["McGinnis, Patrick","NHP",217],["Monahan, Jim","Green",1176],["Nott-Bower, Jack","Reform",302],["Olszewski, Richard","Lab",749],["Paggi, Livia","Lab",848],["Sedgwick, Keith Anthony","Con",189],["Wagner, Erich","LD",132],["Wattebot O'Brien, Charlotte","LD",185],["White, James","Green",1144]],
-   "rejected":19},
-  "Kentish Town North": {"seats":2,"turnout_pct":49.59,"candidates":[
-   ["Ascher, Brigitte","Green",1163],["Davies, Darryl","Con",124],["McNamara, Sylvia Ann","Lab",1367],["Merrin, Richard","Con",109],["Morris, Hannah","Green",1129],["Mortimer, Claire Kim","Reform",141],["Pillai, Roger","LD",84],["Rennie, Colin David James","Reform",137],["Shackle, Rex Urban","LD",72],["Slater, James Samuel","Lab",1351]],
-   "rejected":7},
-  "Kentish Town South": {"seats":3,"turnout_pct":41.26,"candidates":[
-   ["Apak, Meric","Lab",1441],["Ball, Joseph William","Lab",1425],["Brittain, Robert","Con",219],["Hutchings, Pete","Green",1278],["Kohli, Devin","Con",147],["Laidman, Genieve","Reform",272],["Macdonogh, Joseph","LD",155],["Nixon, Kai Michael","Green",1198],["Phillips, Ashoka","Green",1209],["Ricketts, Robert","Con",161],["Spencer, George","Reform",268],["Tappis Offer, Stacey","LD",171],["Temminck Tuinstra, Hinne Laurens Johannes","LD",124],["Williams, Annabelle Tamsin","Lab",1320]],
-   "rejected":12},
-  "King's Cross": {"seats":3,"turnout_pct":31.93,"candidates":[
-   ["Anderson, Joel","CPA",778],["Baktis, Joan Paula","LD",236],["Bautista, Lotis Melisande","Lab",1048],["Cowell-Berry, Andre","Reform",224],["Frost, Cat","Con",224],["Gardner, Robyn","Con",194],["Hatton, Tom","Con",186],["Hegarty, Anthony Thomas","Reform",212],["Martin-Lane, Liam Jamal Dominic","Lab",979],["Mcauley, Derek","LD",204],["McCarthy, Luke","NHP",60],["Pearson, Elizabeth","LD",218],["Renny, Paul","CPA",687],["Renny, Shezan","CPA",694],["Simpson, Jonathan Andrew","Lab",995]],
-   "rejected":15, "note":"No Green candidate stood in King's Cross in 2026"},
-  "Primrose Hill": {"seats":3,"turnout_pct":39.07,"candidates":[
-   ["Akpoke, Esmeralda","Con",977],["Ash, Tom","Green",785],["Corby, Dan","Lab",1209],["Fekulova, Lenka","LD",251],["Flatley, David Patrick","Reform",340],["Hays, Catherine Wakefield","LD",328],["Keiles, Lauren","Lab",1196],["Lodenos, Nik","Reform",292],["Nicholson, Lawrence Joseph","LD",289],["Osman, Suleiman Mohamoud","Lab",1013],["Tavares, Paul","Con",956],["Theodorou, Nicholas","Reform",290],["Tindale, Helen","Green",749],["Wrigley, Matthew","Green",621],["Ziffer, Shajib","Con",794]],
-   "rejected":16, "note":"Ward split between Holborn & St Pancras (PD TB) and Hampstead & Highgate (PDs TA, TC)"},
-  "Regent's Park": {"seats":3,"turnout_pct":35.12,"candidates":[
-   ["Ali, Nasim","Lab",973],["Chorniy, Vladimir","Con",262],["Fafian, Jose","NHP",46],["Fairbrother, Sean","Reform",354],["Gayford, Christopher Michael","LD",189],["Goldenberg, Dean","Reform",331],["Islam, Farhan","LD",113],["Jaigirdar, Ruman","Green",1010],["Johnson, Heather Margaret","Lab",929],["Marsanu, Alexandra","Con",240],["Martin, Beverley Janet","Reform",321],["Mery, Victoria","Green",1138],["Naser, Muhammad Abu","Green",1054],["Shah, Nadia","Lab",905],["Sheppard, Martin","Con",274],["Stanier, Mary Elizabeth","LD",170]],
-   "rejected":13, "note":"Naser (Green) later declared ineligible; by-election 9 July 2026 won by Labour (Nanouche Umeadi, 576 votes, 32.4%) per Wikipedia - verify"},
-  "St Pancras and Somers Town": {"seats":3,"turnout_pct":32.81,"candidates":[
-   ["Bakth, Shah Abdul Majeed","CPA",999],["Bennett, William","Reform",432],["Billington, Hannah","LD",265],["Daden, Angel","NHP",65],["Elkan, David","LD",191],["Ellis, Alex","Con",188],["Friday, Sarah","CPA",943],["Frondigoun, Edmund Philip Pawlak","Lab",978],["Gold, Solomon","Reform",367],["Islam, Raqhib","CPA",906],["Jenkins, Stewart David","LD",192],["Khatoon, Samata","Lab",1092],["Mclaren Webster, Cosmo","Con",161],["Miah, Shah","Lab",1018],["Roberts, David","Con",162],["Roth, Theodore","Reform",366]],
-   "rejected":10, "note":"No Green candidate stood in St Pancras and Somers Town in 2026; Camden People's Alliance (CPA) stood a full slate"}
+  "Bloomsbury": {
+   "seats": 3,
+   "turnout_pct": 33.76,
+   "candidates": [
+    [
+     "Barnett, Kenneth Dowie",
+     "LD",
+     172
+    ],
+    [
+     "Bhangal, Paul",
+     "Con",
+     181
+    ],
+    [
+     "Carr, Lilac",
+     "Green",
+     846
+    ],
+    [
+     "Cooke, Christopher",
+     "Reform",
+     251
+    ],
+    [
+     "Cooke, Katie Marie",
+     "LD",
+     198
+    ],
+    [
+     "Francis, Sabrina",
+     "Lab",
+     910
+    ],
+    [
+     "Frost, William",
+     "Con",
+     266
+    ],
+    [
+     "Harrison, Adam Douglas Keir",
+     "Lab",
+     886
+    ],
+    [
+     "Leach, Stuart",
+     "Con",
+     236
+    ],
+    [
+     "Lewin, Jonathan James Geneste",
+     "LD",
+     198
+    ],
+    [
+     "Lukyanov, Volodymyr",
+     "Green",
+     763
+    ],
+    [
+     "Madlani, Rishi",
+     "Lab",
+     827
+    ],
+    [
+     "Parsfield, Matthew",
+     "Green",
+     817
+    ],
+    [
+     "Samuel, Richard",
+     "Reform",
+     241
+    ]
+   ],
+   "rejected": 11
+  },
+  "Camden Square": {
+   "seats": 2,
+   "turnout_pct": 36.89,
+   "candidates": [
+    [
+     "Abdi-Wali, Sagal",
+     "Lab",
+     890
+    ],
+    [
+     "Britton, Michael Mickey",
+     "Ind",
+     162
+    ],
+    [
+     "Doyle, Helen",
+     "Green",
+     830
+    ],
+    [
+     "Freeman, Roger",
+     "Con",
+     119
+    ],
+    [
+     "Haswell, Adam",
+     "Green",
+     687
+    ],
+    [
+     "Leman, Tricia",
+     "Lab",
+     848
+    ],
+    [
+     "Newman, Benjamin",
+     "LD",
+     164
+    ],
+    [
+     "Ojeda-Sanchez, Juan",
+     "Reform",
+     151
+    ],
+    [
+     "Pearce, Oliver Conrad",
+     "Reform",
+     162
+    ],
+    [
+     "Tomas, Samel",
+     "LD",
+     106
+    ],
+    [
+     "Webb, Jamie",
+     "Con",
+     93
+    ]
+   ],
+   "rejected": 8
+  },
+  "Camden Town": {
+   "seats": 2,
+   "turnout_pct": 32.42,
+   "candidates": [
+    [
+     "Callaghan, Pat",
+     "Lab",
+     746
+    ],
+    [
+     "Cooper, Matt",
+     "Lab",
+     620
+    ],
+    [
+     "Goldsmith, Peter",
+     "Green",
+     583
+    ],
+    [
+     "Haig, David",
+     "Reform",
+     142
+    ],
+    [
+     "Kafton, James",
+     "Con",
+     113
+    ],
+    [
+     "Kirk, Ekaterina",
+     "LD",
+     111
+    ],
+    [
+     "Lee, Susan",
+     "Con",
+     109
+    ],
+    [
+     "Nelson, Philip",
+     "Green",
+     544
+    ],
+    [
+     "Offer, Rafe",
+     "LD",
+     84
+    ],
+    [
+     "Vaidya, Vedamsh",
+     "Reform",
+     96
+    ]
+   ],
+   "rejected": 5
+  },
+  "Haverstock": {
+   "seats": 3,
+   "turnout_pct": 37.99,
+   "candidates": [
+    [
+     "Atolagbe, Kemi",
+     "Lab",
+     1366
+    ],
+    [
+     "Burge, Katharine Alison",
+     "LD",
+     351
+    ],
+    [
+     "Djemai, Nasrine Kahina",
+     "Lab",
+     1255
+    ],
+    [
+     "Farah, Mohamed",
+     "Green",
+     1209
+    ],
+    [
+     "Filer, Rebecca Claire",
+     "Lab",
+     1322
+    ],
+    [
+     "Hakimi, Aziz",
+     "Green",
+     1034
+    ],
+    [
+     "Mackenzie-Lawrie, Josh",
+     "Con",
+     320
+    ],
+    [
+     "Mecava, Andrej",
+     "Green",
+     1117
+    ],
+    [
+     "Moaveni, Alidad",
+     "LD",
+     220
+    ],
+    [
+     "Oh-Eineagain, Aindrias",
+     "Reform",
+     300
+    ],
+    [
+     "Tobin, Joseph Lyle",
+     "LD",
+     259
+    ],
+    [
+     "Webber, John",
+     "Con",
+     319
+    ],
+    [
+     "Wheater, Robert",
+     "Reform",
+     313
+    ],
+    [
+     "Williams, Alex",
+     "Con",
+     298
+    ]
+   ],
+   "rejected": 11
+  },
+  "Holborn and Covent Garden": {
+   "seats": 3,
+   "turnout_pct": 37.4,
+   "candidates": [
+    [
+     "Barabas, Stephen Paul",
+     "LD",
+     182
+    ],
+    [
+     "Chowdhury, Hamza",
+     "Green",
+     1271
+    ],
+    [
+     "Dervish, Atlan Ramadan",
+     "Reform",
+     263
+    ],
+    [
+     "Frost, Alison",
+     "Con",
+     248
+    ],
+    [
+     "Frost, Tim",
+     "Con",
+     220
+    ],
+    [
+     "Fulbrook, Julian",
+     "Lab",
+     1035
+    ],
+    [
+     "Furnell, Mark",
+     "NHP",
+     166
+    ],
+    [
+     "Kane, Michael Anthony",
+     "Reform",
+     309
+    ],
+    [
+     "McGinnis, Patrick",
+     "NHP",
+     217
+    ],
+    [
+     "Monahan, Jim",
+     "Green",
+     1176
+    ],
+    [
+     "Nott-Bower, Jack",
+     "Reform",
+     302
+    ],
+    [
+     "Olszewski, Richard",
+     "Lab",
+     749
+    ],
+    [
+     "Paggi, Livia",
+     "Lab",
+     848
+    ],
+    [
+     "Sedgwick, Keith Anthony",
+     "Con",
+     189
+    ],
+    [
+     "Wagner, Erich",
+     "LD",
+     132
+    ],
+    [
+     "Wattebot O'Brien, Charlotte",
+     "LD",
+     185
+    ],
+    [
+     "White, James",
+     "Green",
+     1144
+    ]
+   ],
+   "rejected": 19
+  },
+  "Kentish Town North": {
+   "seats": 2,
+   "turnout_pct": 49.59,
+   "candidates": [
+    [
+     "Ascher, Brigitte",
+     "Green",
+     1163
+    ],
+    [
+     "Davies, Darryl",
+     "Con",
+     124
+    ],
+    [
+     "McNamara, Sylvia Ann",
+     "Lab",
+     1367
+    ],
+    [
+     "Merrin, Richard",
+     "Con",
+     109
+    ],
+    [
+     "Morris, Hannah",
+     "Green",
+     1129
+    ],
+    [
+     "Mortimer, Claire Kim",
+     "Reform",
+     141
+    ],
+    [
+     "Pillai, Roger",
+     "LD",
+     84
+    ],
+    [
+     "Rennie, Colin David James",
+     "Reform",
+     137
+    ],
+    [
+     "Shackle, Rex Urban",
+     "LD",
+     72
+    ],
+    [
+     "Slater, James Samuel",
+     "Lab",
+     1351
+    ]
+   ],
+   "rejected": 7
+  },
+  "Kentish Town South": {
+   "seats": 3,
+   "turnout_pct": 41.26,
+   "candidates": [
+    [
+     "Apak, Meric",
+     "Lab",
+     1441
+    ],
+    [
+     "Ball, Joseph William",
+     "Lab",
+     1425
+    ],
+    [
+     "Brittain, Robert",
+     "Con",
+     219
+    ],
+    [
+     "Hutchings, Pete",
+     "Green",
+     1278
+    ],
+    [
+     "Kohli, Devin",
+     "Con",
+     147
+    ],
+    [
+     "Laidman, Genieve",
+     "Reform",
+     272
+    ],
+    [
+     "Macdonogh, Joseph",
+     "LD",
+     155
+    ],
+    [
+     "Nixon, Kai Michael",
+     "Green",
+     1198
+    ],
+    [
+     "Phillips, Ashoka",
+     "Green",
+     1209
+    ],
+    [
+     "Ricketts, Robert",
+     "Con",
+     161
+    ],
+    [
+     "Spencer, George",
+     "Reform",
+     268
+    ],
+    [
+     "Tappis Offer, Stacey",
+     "LD",
+     171
+    ],
+    [
+     "Temminck Tuinstra, Hinne Laurens Johannes",
+     "LD",
+     124
+    ],
+    [
+     "Williams, Annabelle Tamsin",
+     "Lab",
+     1320
+    ]
+   ],
+   "rejected": 12
+  },
+  "King's Cross": {
+   "seats": 3,
+   "turnout_pct": 31.93,
+   "candidates": [
+    [
+     "Anderson, Joel",
+     "CPA",
+     778
+    ],
+    [
+     "Baktis, Joan Paula",
+     "LD",
+     236
+    ],
+    [
+     "Bautista, Lotis Melisande",
+     "Lab",
+     1048
+    ],
+    [
+     "Cowell-Berry, Andre",
+     "Reform",
+     224
+    ],
+    [
+     "Frost, Cat",
+     "Con",
+     224
+    ],
+    [
+     "Gardner, Robyn",
+     "Con",
+     194
+    ],
+    [
+     "Hatton, Tom",
+     "Con",
+     186
+    ],
+    [
+     "Hegarty, Anthony Thomas",
+     "Reform",
+     212
+    ],
+    [
+     "Martin-Lane, Liam Jamal Dominic",
+     "Lab",
+     979
+    ],
+    [
+     "Mcauley, Derek",
+     "LD",
+     204
+    ],
+    [
+     "McCarthy, Luke",
+     "NHP",
+     60
+    ],
+    [
+     "Pearson, Elizabeth",
+     "LD",
+     218
+    ],
+    [
+     "Renny, Paul",
+     "CPA",
+     687
+    ],
+    [
+     "Renny, Shezan",
+     "CPA",
+     694
+    ],
+    [
+     "Simpson, Jonathan Andrew",
+     "Lab",
+     995
+    ]
+   ],
+   "rejected": 15,
+   "note": "No Green candidate stood in King's Cross in 2026"
+  },
+  "Primrose Hill": {
+   "seats": 3,
+   "turnout_pct": 39.07,
+   "candidates": [
+    [
+     "Akpoke, Esmeralda",
+     "Con",
+     977
+    ],
+    [
+     "Ash, Tom",
+     "Green",
+     785
+    ],
+    [
+     "Corby, Dan",
+     "Lab",
+     1209
+    ],
+    [
+     "Fekulova, Lenka",
+     "LD",
+     251
+    ],
+    [
+     "Flatley, David Patrick",
+     "Reform",
+     340
+    ],
+    [
+     "Hays, Catherine Wakefield",
+     "LD",
+     328
+    ],
+    [
+     "Keiles, Lauren",
+     "Lab",
+     1196
+    ],
+    [
+     "Lodenos, Nik",
+     "Reform",
+     292
+    ],
+    [
+     "Nicholson, Lawrence Joseph",
+     "LD",
+     289
+    ],
+    [
+     "Osman, Suleiman Mohamoud",
+     "Lab",
+     1013
+    ],
+    [
+     "Tavares, Paul",
+     "Con",
+     956
+    ],
+    [
+     "Theodorou, Nicholas",
+     "Reform",
+     290
+    ],
+    [
+     "Tindale, Helen",
+     "Green",
+     749
+    ],
+    [
+     "Wrigley, Matthew",
+     "Green",
+     621
+    ],
+    [
+     "Ziffer, Shajib",
+     "Con",
+     794
+    ]
+   ],
+   "rejected": 16,
+   "note": "Ward split between Holborn & St Pancras (PD TB) and Hampstead & Highgate (PDs TA, TC)"
+  },
+  "Regent's Park": {
+   "seats": 3,
+   "turnout_pct": 35.12,
+   "candidates": [
+    [
+     "Ali, Nasim",
+     "Lab",
+     973
+    ],
+    [
+     "Chorniy, Vladimir",
+     "Con",
+     262
+    ],
+    [
+     "Fafian, Jose",
+     "NHP",
+     46
+    ],
+    [
+     "Fairbrother, Sean",
+     "Reform",
+     354
+    ],
+    [
+     "Gayford, Christopher Michael",
+     "LD",
+     189
+    ],
+    [
+     "Goldenberg, Dean",
+     "Reform",
+     331
+    ],
+    [
+     "Islam, Farhan",
+     "LD",
+     113
+    ],
+    [
+     "Jaigirdar, Ruman",
+     "Green",
+     1010
+    ],
+    [
+     "Johnson, Heather Margaret",
+     "Lab",
+     929
+    ],
+    [
+     "Marsanu, Alexandra",
+     "Con",
+     240
+    ],
+    [
+     "Martin, Beverley Janet",
+     "Reform",
+     321
+    ],
+    [
+     "Mery, Victoria",
+     "Green",
+     1138
+    ],
+    [
+     "Naser, Muhammad Abu",
+     "Green",
+     1054
+    ],
+    [
+     "Shah, Nadia",
+     "Lab",
+     905
+    ],
+    [
+     "Sheppard, Martin",
+     "Con",
+     274
+    ],
+    [
+     "Stanier, Mary Elizabeth",
+     "LD",
+     170
+    ]
+   ],
+   "rejected": 13,
+   "note": "Muhammad Abu Naser (Green) was elected here in May and then found ineligible, triggering the by-election of 9 July 2026, which Labour won. The May result below is the declaration as made."
+  },
+  "St Pancras and Somers Town": {
+   "seats": 3,
+   "turnout_pct": 32.81,
+   "candidates": [
+    [
+     "Bakth, Shah Abdul Majeed",
+     "CPA",
+     999
+    ],
+    [
+     "Bennett, William",
+     "Reform",
+     432
+    ],
+    [
+     "Billington, Hannah",
+     "LD",
+     265
+    ],
+    [
+     "Daden, Angel",
+     "NHP",
+     65
+    ],
+    [
+     "Elkan, David",
+     "LD",
+     191
+    ],
+    [
+     "Ellis, Alex",
+     "Con",
+     188
+    ],
+    [
+     "Friday, Sarah",
+     "CPA",
+     943
+    ],
+    [
+     "Frondigoun, Edmund Philip Pawlak",
+     "Lab",
+     978
+    ],
+    [
+     "Gold, Solomon",
+     "Reform",
+     367
+    ],
+    [
+     "Islam, Raqhib",
+     "CPA",
+     906
+    ],
+    [
+     "Jenkins, Stewart David",
+     "LD",
+     192
+    ],
+    [
+     "Khatoon, Samata",
+     "Lab",
+     1092
+    ],
+    [
+     "Mclaren Webster, Cosmo",
+     "Con",
+     161
+    ],
+    [
+     "Miah, Shah",
+     "Lab",
+     1018
+    ],
+    [
+     "Roberts, David",
+     "Con",
+     162
+    ],
+    [
+     "Roth, Theodore",
+     "Reform",
+     366
+    ]
+   ],
+   "rejected": 10,
+   "note": "No Green candidate stood in St Pancras and Somers Town in 2026; Camden People's Alliance (CPA) stood a full slate"
+  }
  }
 }

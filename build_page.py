@@ -18,7 +18,12 @@ banned = [(r'<script[^>]+\ssrc=', 'external script'),
           (r'@import', 'css import'),
           (r'\bfetch\s*\(', 'fetch call'),
           (r'Not for publication', 'internal-only marking'),
-          (r'(?i)campaign brief', 'campaign branding')]
+          (r'(?i)campaign brief', 'campaign branding'),
+          # Working notes have reached the published page once already: a ward note
+          # still read "per Wikipedia - verify" after the figure had been checked
+          # against Camden's own declaration. Anything that reads like an unresolved
+          # to-do is a bug in a page whose whole claim is that its sourcing is settled.
+          (r'(?i)\bTODO\b|\bFIXME\b|- ?verify\b|\bcheck this\b', 'unresolved working note')]
 scan = re.sub(r'<a\s[^>]*>', '', out)
 for pat, what in banned:
     m = re.search(pat, scan)

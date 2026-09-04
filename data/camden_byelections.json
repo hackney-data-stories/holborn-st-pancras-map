@@ -1,0 +1,56 @@
+{
+  "source": "London Borough of Camden declarations. Regent's Park: camden.gov.uk/regents-park-2026-by-election-results. Camden Square and Kentish Town South: news.camden.gov.uk/by-election-results-camden-square-kentish-town-south-kilburn/. Both read 4 September 2026.",
+  "note": "Every by-election held in a Holborn and St Pancras ward since the 2022 all-out elections. The Kilburn by-election of the same day, 5 September 2024, is excluded: Kilburn is in Hampstead and Highgate, not this seat. All are single-member contests, so shares are of ballot papers, not of best candidates.",
+  "byelections": [
+    {
+      "ward": "Regent's Park",
+      "date": "2026-07-09",
+      "seats": 1,
+      "turnout_pct": 21.93,
+      "cause": "Resignation of Cllr Muhammad Abu Naser (Green), elected in May 2026 and then found ineligible.",
+      "outcome": "Labour gain from Green",
+      "result": [
+        ["Lab", "Nanouche Umeadi", 576],
+        ["Green", "Alice Amelia Brown", 482],
+        ["Ind", "Mohammad Junayd Khan", 407],
+        ["Con", "Vladimir Chorniy", 137],
+        ["Reform", "Beverley Janet Martin", 123],
+        ["LD", "Henry William Windle Potts", 51]
+      ],
+      "rejected": {"no_official_mark": 0, "overvoting": 11, "identifiable": 0, "unmarked_or_uncertain": 2, "total": 13}
+    },
+    {
+      "ward": "Camden Square",
+      "date": "2024-09-05",
+      "seats": 1,
+      "turnout_pct": 16.35,
+      "cause": "Resignation of Cllr Danny Beales (Lab), elected to Parliament in July 2024.",
+      "outcome": "Labour hold",
+      "result": [
+        ["Lab", "Patricia Leman", 465],
+        ["Ind", "Mohammed Ali Farah", 164],
+        ["Green", "James Dicker", 133],
+        ["LD", "Alexander Edward Matthews", 89],
+        ["Ind", "Jasper Warwick", 75],
+        ["Con", "Esmerelda Akpoke", 48]
+      ],
+      "rejected": null
+    },
+    {
+      "ward": "Kentish Town South",
+      "date": "2024-09-05",
+      "seats": 1,
+      "turnout_pct": 17.93,
+      "cause": "Resignation of Cllr Georgia Gould (Lab), elected to Parliament in July 2024.",
+      "outcome": "Labour hold",
+      "result": [
+        ["Lab", "Joseph William Ball", 674],
+        ["Green", "Alice Amelia Brown", 327],
+        ["Ind", "Muhammad Abu Naser", 289],
+        ["Con", "Shajib Ziffer", 77],
+        ["LD", "Tara Michelle-Louise Copeland", 72]
+      ],
+      "rejected": null
+    }
+  ]
+}
