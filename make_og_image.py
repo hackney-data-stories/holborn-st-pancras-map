@@ -54,6 +54,8 @@ shapes = '\n'.join(
 hatch = '\n'.join(
     f'<path d="{p}" fill="url(#h)"/>' for p, _, lab in paths if lab)
 
+B = d['meta'].get('byelection2026') or {}
+lab_pct = B['result'][0][4]; green_pct = B['result'][1][4]; majority = B['majority']
 html = f'''<!doctype html><meta charset="utf-8">
 <style>
   @page {{ size: 1200px 630px; }}
@@ -78,13 +80,13 @@ html = f'''<!doctype html><meta charset="utf-8">
   <div class="txt">
     <p class="kick">A by-election in eleven wards</p>
     <h1>Holborn and<br>St&nbsp;Pancras</h1>
-    <p class="sub">Ward-level results, turnout, census and deprivation —
-      built from published data only.</p>
+    <p class="sub">Labour hold, 8 October 2026. Ward-level results, turnout,
+      census and deprivation, from published data only.</p>
     <div class="stat">
-      <div><b>2.5<span class="u">&thinsp;pts</span></b>
-        <span class="d">Labour lead over the Greens where a Green stood</span></div>
-      <div><b>9.2<span class="u">&thinsp;pts</span></b>
-        <span class="d">The lead across all eleven wards</span></div>
+      <div><b>{lab_pct}<span class="u">&thinsp;%</span></b>
+        <span class="d">Labour, Sagal Abdi-Wali</span></div>
+      <div><b>{green_pct}<span class="u">&thinsp;%</span></b>
+        <span class="d">Green, Zack Polanski. Majority {majority:,}</span></div>
     </div>
     <p class="foot">holborn-st-pancras-map.pages.dev</p>
   </div>

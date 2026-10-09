@@ -1,8 +1,14 @@
 # Holborn and St Pancras: a by-election in eleven wards
 
 A ward-level map of the Holborn and St Pancras constituency, built for the
-by-election called on 1 September 2026 following the resignation of Keir Starmer.
-Every figure comes from published sources.
+by-election of 8 October 2026 that followed Keir Starmer's resignation. Every
+figure comes from published sources.
+
+**Result, declared 9 October 2026:** Labour hold. Sagal Abdi-Wali 12,292 (45.2%),
+Zack Polanski 8,928 (32.8%), majority 3,364. Turnout 38.76%. The full declaration
+is in `data/camden_hsp_byelection_2026.json` and on the page, beside the 2024
+result. There is no ward breakdown of a parliamentary count, so the map itself
+still shows the May 2026 locals.
 
 **Live map:** https://holborn-st-pancras-map.pages.dev
 
@@ -22,19 +28,26 @@ its full 2026 and 2022 results, its census profile and its polling districts.
 Everything the colours encode is also available as plain text through the
 "Table view" button.
 
-## Four things in it
+## Five things in it
 
-1. **The nine-point gap is mostly an artefact of not standing.** Across all
+1. **What the May reading got right and wrong.** The page offered two ways to sum
+   the May locals: a 9.2-point Labour lead across all wards, or 2.5 across the
+   nine where a Green stood, and said the second was the better comparison. The
+   by-election gap was 12.4 points. The all-wards figure was closer. The vote in
+   the two wards the Greens had not contested did not come to them in October.
+
+
+2. **The nine-point gap.** Across all
    eleven wards Labour led the Greens by 9.2 points in May 2026. Across the nine
    wards where a Green candidate was actually on the ballot, the lead was 2.5
    points. The Greens fielded nobody in King's Cross or St Pancras and Somers
    Town, which between them hold about a fifth of the electorate.
-2. **What the Green vote tracks.** Across the nine contested wards the Green lead
+3. **What the Green vote tracks.** Across the nine contested wards the Green lead
    over Labour correlates +0.66 with social renting and −0.57 with degree
    holding. Bloomsbury has the most students in the seat, 39.7%, and the Greens
    did not win it. Nine wards is a very small sample, and these are relationships
    between ward averages rather than between voters.
-3. **Regent's Park, 9 July 2026.** The Greens won all three seats there in May.
+4. **Regent's Park, 9 July 2026.** The Greens won all three seats there in May.
    One came up again ten weeks later and Labour won it by 94 votes, with an
    independent on 407. Turnout was 21.9%, against 35.1% in May, and the Green
    share went from 38.3% to 27.1%.
@@ -46,7 +59,7 @@ Everything the colours encode is also available as plain text through the
    the page refuses to draw the turnout inference from them. Only Regent's Park is
    a turnout test.
 
-4. **Council seats.** Labour holds 23 of the 30 in this seat, the Greens 6 and
+5. **Council seats.** Labour holds 23 of the 30 in this seat, the Greens 6 and
    the Camden People's Alliance 1. The last seat in every ward was won across
    party lines, and in eight of them by under fifty votes: Camden Square by 18,
    Bloomsbury by 19, St Pancras and Somers Town by 21, and five more under fifty.

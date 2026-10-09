@@ -493,13 +493,14 @@ function toggleTable(on){
 }
 
 function init(){
-  const g = META.ge2024, L = META.locals2026_seat;
+  const g = META.ge2024, L = META.locals2026_seat, B = META.byelection2026;
   document.getElementById('standfirst').innerHTML =
-    `By-election called ${new Date(META.byelection2026.called).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}. Polling day not yet set. ` +
+    `By-election held ${new Date(META.byelection2026.date).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}. ${
+      META.byelection2026.outcome}, majority ${META.byelection2026.majority.toLocaleString()}. ` +
     `Eleven Camden wards, ${g.electorate.toLocaleString()} electors at the 2024 register.`;
   document.getElementById('msrc').textContent =
     'Sources: Camden Council declarations; ONS Census 2021; MHCLG deprivation 2025. Boundaries: ONS.';
-  document.getElementById('msig').textContent = 'Built ' + META.built;
+  document.getElementById('msig').textContent = 'Built ' + META.built + (META.updated ? ', updated ' + META.updated : '');
 
   const sel = document.getElementById('metric');
   METRICS.forEach((m,i) => { const o = document.createElement('option'); o.value=i; o.textContent=m.label; sel.appendChild(o); });
@@ -517,7 +518,20 @@ function init(){
       r.map(x=>`<i style="width:${x[2]/t*100}%;background:${(PARTY[x[0]]||PARTY.Other).c}"></i>`).join('')}</div>`; };
 
   document.getElementById('headline').innerHTML = `
-    <h2>The seat as it stands</h2>
+    <h2>The result</h2>
+    <p class="note"><b>By-election, ${new Date(B.date).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}.</b>
+      Turnout ${pc(B.turnout_pct)}. ${B.valid_votes.toLocaleString()} valid votes, ${B.rejected_total} rejected.</p>
+    ${bar(B.result.map(r => [r[0], r[1], r[3], r[4]]))}
+    <table><thead><tr><th></th><th>Votes</th><th>Share</th><th>Change, pts</th></tr></thead>
+    <tbody>${B.result.slice(0,7).map(r =>
+      `<tr><td class="p"><span class="chip" style="background:${(PARTY[r[0]]||PARTY.Other).c}"></span>${
+        r[1].split(',')[0]} <span class="mute">${PARTY[r[0]] ? PARTY[r[0]].n : (r[2] || 'Independent')}</span></td>
+       <td>${r[3].toLocaleString()}</td><td class="win">${r[4]}%</td>
+       <td>${r[5] == null ? '—' : sign(r[5])}</td></tr>`).join('')}</tbody></table>
+    <p class="note mute">${B.result.length} candidates stood. Labour majority ${B.majority.toLocaleString()},
+      ${B.majority_pct}% of the vote. Swing from Labour to Green ${B.swing_lab_to_green_pct}%.
+      No ward breakdown of a parliamentary count exists.</p>
+    <h2 style="margin-top:14px">Before it</h2>
     <p class="note"><b>General election, 4 July 2024.</b> Turnout ${g.turnout_pct}%.</p>
     ${bar(g.result)}
     <table><tbody>${g.result.slice(0,6).map(r =>
@@ -566,7 +580,19 @@ function init(){
   document.getElementById('findings').innerHTML = `
     <h2>Notes on the numbers</h2>
     <ol>
-      <li><b>The nine-point gap.</b> Labour led the Greens by
+      <li><b>What happened.</b> Labour held the seat. Abdi-Wali ${B.result[0][3].toLocaleString()},
+        Polanski ${B.result[1][3].toLocaleString()}, a majority of ${B.majority.toLocaleString()}.
+        The Green share went from 10.4% in 2024 to ${B.result[1][4]}%, and Labour's from 48.9% to
+        ${B.result[0][4]}%. Turnout was ${pc(B.turnout_pct)}, against 54.1% at the general
+        election and ${pc(L.turnout_pct)} across the wards in May.</li>
+      <li><b>Which May reading held up.</b> Before polling day this page gave two ways of summing
+        the May locals: a Labour lead of ${(L.all_wards.shares.Lab - L.all_wards.shares.Green).toFixed(1)}
+        points across all eleven wards, or ${(L.green_contested_wards_only.shares.Lab - L.green_contested_wards_only.shares.Green).toFixed(1)}
+        across the nine where a Green stood, and said the second was the better comparison. The
+        by-election gap was ${B.majority_pct} points. The all-wards figure was the closer of the two.
+        Where the Greens had not stood in May, the vote did not come to them in October in the
+        way the contested wards suggested it might.</li>
+      <li><b>The nine-point gap, as it looked in September.</b> Labour led the Greens by
         ${(L.all_wards.shares.Lab - L.all_wards.shares.Green).toFixed(1)} points across all eleven
         wards in May. Across the nine wards where a Green candidate was on the ballot, the lead was
         ${(L.green_contested_wards_only.shares.Lab - L.green_contested_wards_only.shares.Green).toFixed(1)}

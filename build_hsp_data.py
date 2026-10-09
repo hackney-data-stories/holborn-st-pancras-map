@@ -240,6 +240,47 @@ def council_composition(out_wards, byelections):
     }
 
 
+GE2024 = {
+    'electorate': 71300, 'turnout_pct': 54.1, 'valid_votes': 38602,
+    'result': [['Lab', 'Keir Starmer', 18884, 48.9], ['Ind', 'Andrew Feinstein', 7312, 18.9],
+               ['Green', 'David Stansell', 4030, 10.4], ['Con', 'Mehreen Malik', 2776, 7.2],
+               ['Reform', 'David Roberts', 2371, 6.1], ['LD', 'Charlie Clinton', 2236, 5.8],
+               ['Ind', 'Wais Islam', 636, 1.6], ['Other', 'Others', 357, 0.9]],
+    'prov': 'UK Parliament / Wikipedia transcription of the 2024 declaration',
+}
+
+def load_byelection_2026(ge2024):
+    """The parliamentary by-election of 8 October 2026, from Camden's declaration.
+
+    Constituency-level only, like the 2024 result: no ward breakdown of a
+    parliamentary count exists. Change since 2024 is given where the same party
+    stood both times. The two independents are not compared — Feinstein's 7,312
+    in 2024 and Darwood's 7 in 2026 are not the same thing with a smaller number.
+    """
+    src = json.load(open(D('camden_hsp_byelection_2026.json')))
+    valid = sum(r[3] for r in src['result'])
+    rej = src['rejected']['total']
+    prev = {r[0]: r[3] for r in ge2024['result'] if r[0] not in ('Ind', 'Other')}
+    rows = []
+    for party, name, desc, votes in src['result']:
+        share = round(100.0 * votes / valid, 1)
+        change = round(share - prev[party], 1) if party in prev else None
+        rows.append([party, name, desc, votes, share, change])
+    first, second = rows[0], rows[1]
+    return {
+        'called': '2026-09-01', 'date': src['date'], 'declared': src['declared'],
+        'cause': 'Resignation of Keir Starmer (Steward of the Chiltern Hundreds)',
+        'turnout_pct': src['turnout_pct'], 'valid_votes': valid, 'rejected_total': rej,
+        'electorate_est': round((valid + rej) / src['turnout_pct'] * 100),
+        'winner': src['winner'], 'outcome': src['outcome'],
+        'majority': first[3] - second[3],
+        'majority_pct': round(100.0 * (first[3] - second[3]) / valid, 1),
+        'swing_lab_to_green_pct': round(((second[4] - prev['Green']) - (first[4] - prev['Lab'])) / 2, 1),
+        'result': rows,
+        'prov': src['source'],
+    }
+
+
 def build_byelections(out_wards):
     """Every by-election held in a ward of this seat since the 2022 all-out elections.
 
@@ -505,20 +546,10 @@ def main():
             'title': 'Holborn and St Pancras by-election map',
             'constituency': {'code': 'E14001290', 'name': 'Holborn and St Pancras'},
             'built': '2026-09-04',
+            'updated': '2026-10-09',
             'bbox': [round(x, 6) for x in b],
-            'ge2024': {
-                'electorate': 71300, 'turnout_pct': 54.1, 'valid_votes': 38602,
-                'result': [['Lab', 'Keir Starmer', 18884, 48.9], ['Ind', 'Andrew Feinstein', 7312, 18.9],
-                           ['Green', 'David Stansell', 4030, 10.4], ['Con', 'Mehreen Malik', 2776, 7.2],
-                           ['Reform', 'David Roberts', 2371, 6.1], ['LD', 'Charlie Clinton', 2236, 5.8],
-                           ['Ind', 'Wais Islam', 636, 1.6], ['Other', 'Others', 357, 0.9]],
-                'prov': 'UK Parliament / Wikipedia transcription of the 2024 declaration',
-            },
-            'byelection2026': {
-                'called': '2026-09-01', 'date': None,
-                'cause': 'Resignation of Keir Starmer (Steward of the Chiltern Hundreds)',
-                'prov': 'Camden New Journal via Wikipedia, read 2026-09-04',
-            },
+            'ge2024': GE2024,
+            'byelection2026': load_byelection_2026(GE2024),
             'correlations': {
                 'n': len(C),
                 'basis': 'Pearson correlation across the nine wards where a Green candidate '
@@ -536,6 +567,7 @@ def main():
                                                'wards': [w['ward'] for w in out_wards if w['e2026']['contested_by_green']]},
                 'green_absent_wards': green_absent,
                 'est_electorate': round(elect_total), 'est_ballots': round(ballots_total),
+                'turnout_pct': round(100.0 * ballots_total / elect_total, 1) if elect_total else None,
                 'prov': 'Best-performing candidate per party in each ward, votes weighted by the '
                         'share of the ward population inside the seat, then summed. Multi-member '
                         'wards, so this is a share of best-candidate votes, not of ballot papers.',

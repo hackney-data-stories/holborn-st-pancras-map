@@ -1,0 +1,26 @@
+{
+  "source": "London Borough of Camden declaration, camden.gov.uk/holborn-and-st-pancras-by-election-2026-results, read 9 October 2026. Press reports gave the Conservative figure as 1,992; the declaration says 1,922.",
+  "date": "2026-10-08",
+  "declared": "2026-10-09",
+  "winner": "Abdi-Wali, Sagal",
+  "outcome": "Labour hold",
+  "turnout_pct": 38.76,
+  "result": [
+    ["Lab",     "Abdi-Wali, Sagal",            "Labour Party",                          12292],
+    ["Green",   "Polanski, Zack",              "The Green Party",                        8928],
+    ["Con",     "Cameron, Ewan",               "The Conservative Party Candidate",       1922],
+    ["Reform",  "Newman, Peter",               "Reform UK",                              1612],
+    ["LD",      "Stillman, Patrick Thomas",    "Liberal Democrats",                       924],
+    ["Restore", "Johnson, Tyler Kurtis",       "Restore Britain",                         692],
+    ["WPB",     "Galloway, George",            "Workers Party",                           314],
+    ["RejoinEU","Kapoor, Briony Anne Lonbay",  "Rejoin EU",                               236],
+    ["OMRLP",   "Brunch, Barmy",               "Official Monster Raving Loony Party",      87],
+    ["CPA-Chr", "Spiby-Vann, Helen",           "Christian Peoples Alliance",               63],
+    ["Climate", "Fischer, Clare",              "Climate Party",                            51],
+    ["UKIP",    "Walker, Ben",                 "UKIP - No to Illegal Immigration",         51],
+    ["UKVoice", "Pipaliya, Ketankumar",        "UK VOICE Safer and Stronger UK",           23],
+    ["CommL",   "Silberman, Jonathan",         "Communist League",                          9],
+    ["Ind",     "Darwood, Tom",                "",                                          7]
+  ],
+  "rejected": {"want_of_official_mark": 0, "more_than_one_candidate": 43, "identifiable": 0, "unmarked_or_uncertain": 65, "total": 108}
+}
